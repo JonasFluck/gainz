@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>New Sails App</title>
 
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <%/* If you want to discourage search engines from indexing this site, uncomment the following line: */%>
-    <%/* <meta name="robots" content="noindex"> */%>
+    <% /* If you want to discourage search engines from indexing this site, uncomment the following line: */%>
+        <% /* <meta name="robots" content="noindex"> */%>
 
 
 
-    <!--
+            <!--
         Stylesheets and Preprocessors
         ==============================
 
@@ -32,101 +33,124 @@
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
 
-    <!--STYLES-->
-    <link rel="stylesheet" href="/dependencies/bootstrap-4/bootstrap-4.css">
-    <link rel="stylesheet" href="/dependencies/fontawesome.css">
-    <link rel="stylesheet" href="/styles/bulma.css">
-    <link rel="stylesheet" href="/styles/importer.css">
-    <link rel="stylesheet" href="/styles/navbar.css">
-    <!--STYLES END-->
-    <script src="https://kit.fontawesome.com/b0ea4541a8.js" crossorigin="anonymous"></script>
-  </head>
+            <!--STYLES-->
+            <link rel="stylesheet" href="/dependencies/bootstrap-4/bootstrap-4.css">
+            <link rel="stylesheet" href="/dependencies/fontawesome.css">
+            <link rel="stylesheet" href="/styles/bulma.css">
+            <link rel="stylesheet" href="/styles/importer.css">
+            <link rel="stylesheet" href="/styles/navbar.css">
+            <!--STYLES END-->
+            <script src="https://kit.fontawesome.com/b0ea4541a8.js" crossorigin="anonymous"></script>
+</head>
 
-  <body>
+<body>
     <div id="wrapper">
-      <nav class="bd-navbar navbar" role="navigation" aria-label="main navigation" style="max-height: none;">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="/"> 
-              <img src="/images/new.png"  alt="logo">
-          </a>
+        <nav class="bd-navbar navbar" role="navigation" aria-label="main navigation" style="max-height: none;">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">
+                    <img src="/images/new.png" alt="logo">
+                </a>
 
-          <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                    data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-center">
+                    <form id="search_form">
+                        <div class="navbar-item field has-addons">
+                            <p class="control is-expanded">
+                                <input class="input" name="query" type="text" placeholder="I'm looking for..." required>
+                            </p>
+                            <p class="control">
+                                <button class="button" type="submit">
+                                    Search
+                                </button>
+                            </p>
+                        </div>
+                    </form>
+                    <a class="navbar-item is-hidden-desktop">
+                        <p>Nutrition</p>
+                    </a>
+                    <a class="navbar-item is-hidden-desktop">
+                        <p>Fitnessziele</p>
+                    </a>
+                    <a class="navbar-item is-hidden-desktop">
+                        <p>Ernährungsformen</p>
+                    </a>
+                    <a class="navbar-item is-hidden-desktop">
+                        <p>Kleidung</p>
+                    </a>
+                </div>
+                <div class="navbar-end">
+                    <a class="navbar-item">
+                        <span class="icon-text">
+                            <span class="icon">
+                                <img src="images/user.png" alt="User">
+                            </span>
+                            <span>Konto</span>
+                        </span>
+                    </a> <a class="navbar-item">
+                        <span class="icon-text">
+                            <span class="icon">
+                                <img src="images/Warenkorb.png" alt="Warenkorb">
+                            </span>
+                            <span>Warenkorb</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container is-fluid ">
+            <div class="columns">
+                <div class="column is-2">
+                    <aside class="menu">
+                        <p class="menu-label">
+                            General
+                        </p>
+                        <ul class="menu-list">
+                            <li><a href="/admin">Admin</a></li>
+                            <li><a href="/product">Products</a></li>
+                            <li>
+                                <ul>
+                                    <li><a>Categories</a></li>
+                                </ul>
+                            </li>
+                            <li><a>Users</a></li>
+                            <li><a>Orders</a></li>
+                        </ul>
+                    </aside>
+                </div>
+                <div class="column is-10">
+                    <%- body %>
+                </div>
+            </div>
         </div>
-      
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-center">
-            <form id="search_form">
-              <div class="navbar-item field has-addons">
-                <p class="control is-expanded">
-                  <input class="input" name="query" type="text" placeholder="I'm looking for..." required>
-                </p>
-                <p class="control">
-                  <button class="button" type="submit">
-                    Search
-                  </button>
-                </p>
-              </div>
-            </form>
-            <a class="navbar-item is-hidden-desktop">
-              <p>Nutrition</p>
-            </a>
-            <a class="navbar-item is-hidden-desktop">
-              <p>Fitnessziele</p>
-            </a>
-            <a class="navbar-item is-hidden-desktop">
-              <p>Ernährungsformen</p>
-            </a>
-            <a class="navbar-item is-hidden-desktop">
-              <p>Kleidung</p>
-            </a>
-          </div>
-          <div class="navbar-end">
-            <a class="navbar-item">
-              <span class="icon-text">
-                <span class="icon">
-                  <img src="images/user.png" alt="User">
-                </span>
-                <span>Konto</span>
-              </span>
-            </a> <a class="navbar-item">
-              <span class="icon-text">
-                <span class="icon">
-                  <img src="images/Warenkorb.png" alt="Warenkorb">
-                </span>
-                <span>Warenkorb</span>
-              </span>
-            </a>
-          </div>
+    </div>
+    <footer class="footer">
+        <div class="content has-text centered">
+            <div class="links">
+                <div class="level-item">
+                    Informationen
+                </div>
+                <div class="level-item">
+                    Kundenservice
+                </div>
+                <div class="level-item">
+                    Hilfe
+                </div>
+                <div class="level-item pt-3">
+                    <p>Copyright 2022 GAINZ</p>
+                </div>
+            </div>
         </div>
-      </nav>
-    </div> 
 
-    </body>
-    <%- body %>
-  </div>
-<footer class="footer">
-  <div class="content has-text centered">
-    <div class="links">
-      <div class="level-item">
-        Informationen
-      </div>
-      <div class="level-item">
-        Kundenservice
-      </div>
-      <div class="level-item">
-        Hilfe
-      </div>
-      <div class="level-item pt-3">
-        <p>Copyright 2022 GAINZ</p>
-      </div>
-    </div> 
-  </div>
-
-</footer>
+    </footer>
 
 
     <!--
@@ -228,5 +252,7 @@
     <script src="/js/pages/legal/privacy.page.js"></script>
     <script src="/js/pages/legal/terms.page.js"></script>
     <!--SCRIPTS END-->
-  </body>
+
+</body>
+
 </html>

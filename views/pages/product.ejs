@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <section class="hero is-primary has-text-centered">
+        <div class="hero-body">
+            <p class="title">
+                Products
+            </p>
+        </div>
+    </section>
+    <div class='container'>
+        <div class='columns is-full'>
+            <div class='column is-full'>
+                <div class="table-container">
+                    <table class="table is-striped mx-auto is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th></th>
+                                <th></th>
+                                <th>
+                                    <div class="is-variable">
+                                        <button class="button is-primary card-footer-item" id="newProductButton">
+                                            Neues Produkt anlegen
+                                        </button>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% products.forEach(function(product){ %>
+                                <tr>
+                                    <td>
+                                        <%= product.id %>
+                                    </td>
+                                    <td>
+                                        <%= product.name %>
+                                    </td>
+                                    <td>
+                                        <%= product.description %>
+                                    </td>
+                                    <td>
+                                        <%= product.category %>
+                                    </td>
+                                    <td>
+                                        <%= product.price %>
+                                    </td>
+                                    <td>
+                                        <a href="/product/show<%= product.id %>" class="button is-info">Show</a>
+                                    </td>
+                                    <td>
+                                        <a href="/product/edit/<%= product.id %>" class="button is-warning">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a href="/product/destroy/<%= product.id %>" class="button is-danger">Delete</a>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content has-background-white py-5 px-5">
+            <h3 class="title mb-6">Neues Produkt anlegen</h3>
+            <form action="/product" method="post">
+                <div class="field">
+                    <label for="" class="label">Name</label>
+                    <div class="control">
+                        <input type="text" class="input" placeholder="Name" name="name">
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="" class="label">Price</label>
+                    <div class="control">
+                        <input type="number" class="input" step="any" placeholder="Price" name="price">
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="" class="label">Description</label>
+                    <div class="control">
+                        <input type="text" class="input" placeholder="Description" name="description">
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="" class="label">Category</label>
+                    <div class="control">
+                        <div class="select is-primary">
+                            <select name="category">
+                                <option value="1">Supplemment</option>
+                                <option value="2">Clothing</option>
+                                <option value="3">Others</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 has-text-centered">
+                    <button class="button is-primary" type="submit">Erstellen</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        //modal
+        const newProductButton = document.querySelector('#newProductButton')
+        const modalBg = document.querySelector('.modal-background');
+        const modal = document.querySelector('.modal');
+
+        newProductButton.addEventListener('click', () => {
+            modal.classList.add('is-active');
+        })
+
+        modalBg.addEventListener('click', () => {
+            modal.classList.remove('is-active');
+        })
+
+    </script>
+
+</body>
+
+</html>

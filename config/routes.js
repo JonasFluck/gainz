@@ -63,4 +63,31 @@ module.exports.routes = {
   'POST  /api/v1/deliver-contact-form-message':          { action: 'deliver-contact-form-message' },
   'POST  /api/v1/observe-my-session':                 { action: 'observe-my-session', hasSocketFeatures: true },
 
+
+  //Unsere Routen
+  '/': { view: 'pages/homepage' },
+ 
+  //'GET /product/new':{view: 'pages/product/new'}, 
+  'POST /product':{controller:'ProductController', action:'create'},
+  'GET /product/destroy':{controller:'ProductController', action:'destroy'},
+  'POST /product/update/:id':{controller:'ProductController', action:'update'},
+  'GET /product/edit/:id': { controller: 'ProductController', action: 'edit' },
+
+
+  'GET /product:id': 'product.findOne',
+  //'GET /product/:id': 'product.destroy', 
+
+  //admin views
+  'GET /product':{view:'ProductController.find', locals:{layout:'admin-layout'}},
+  'GET /admin':{view: 'pages/admin/admin', locals:{layout:'admin-layout'}},
+  'GET /admin/search':{ controller:'ProductController', action:'search'},
+ 
+
+  'GET /ernaehrungsformen/vegetarisch':{view: 'pages/ernaehrungsformen/vegetarisch', locals:{layout:'/pages/ernaehrungsformen/basiclayout'}},
+  'GET /ernaehrungsformen/pesketarisch':{view: 'pages/ernaehrungsformen/pesketarisch', locals:{layout:'/pages/ernaehrungsformen/basiclayout'}},
+  'GET /ernaehrungsformen/vegan':{view: 'pages/ernaehrungsformen/vegan', locals:{layout:'/pages/ernaehrungsformen/basiclayout'}},
+
+  'GET /fitnessziele/abnehmen':{view: 'pages/fitnessziele/abnehmen'},
+  'GET /fitnessziele/ausdauer':{view: 'pages/fitnessziele/ausdauer'},
+  'GET /fitnessziele/muskelaufbau':{view: 'pages/fitnessziele/muskelaufbau'},
 };
