@@ -13,7 +13,7 @@ module.exports.routes = {
   //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
-  'GET /':                   { action: 'view-homepage-or-redirect' },
+  'GET /':                   { action: 'pages/homepage' },
   'GET /welcome/:unused?':   { action: 'dashboard/view-welcome' },
 
   'GET /faq':                { action:   'view-faq' },
