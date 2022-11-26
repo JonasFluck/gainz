@@ -69,7 +69,7 @@ module.exports.routes = {
  
   //'GET /product/new':{view: 'pages/product/new'}, 
   'POST /product':{controller:'ProductController', action:'create'},
-  'GET /product/destroy':{controller:'ProductController', action:'destroy'},
+  'GET /product/destroy/:id':{controller:'ProductController', action:'destroy'},
   'POST /product/update/:id':{controller:'ProductController', action:'update'},
   'GET /product/edit/:id': { controller: 'ProductController', action: 'edit' },
 
@@ -78,14 +78,14 @@ module.exports.routes = {
   //'GET /product/:id': 'product.destroy', 
 
   //admin views
-  'GET /product':{view:'ProductController.find', locals:{layout:'admin-layout'}},
+  'GET /product':{controller:'ProductController', action:'find', locals:{layout:'admin-layout'}},
   'GET /admin':{view: 'pages/admin/admin', locals:{layout:'admin-layout'}},
   'GET /admin/search':{ controller:'ProductController', action:'search'},
  
 
-  'GET /ernaehrungsformen/vegetarisch':{view: 'pages/ernaehrungsformen/vegetarisch', locals:{layout:'/pages/ernaehrungsformen/basiclayout'}},
-  'GET /ernaehrungsformen/pesketarisch':{view: 'pages/ernaehrungsformen/pesketarisch', locals:{layout:'/pages/ernaehrungsformen/basiclayout'}},
-  'GET /ernaehrungsformen/vegan':{view: 'pages/ernaehrungsformen/vegan', locals:{layout:'/pages/ernaehrungsformen/basiclayout'}},
+  'GET /ernaehrungsformen/vegetarisch':{view: 'pages/ernaehrungsformen/vegetarisch', locals:{layout:'admin-layout'}},
+  'GET /ernaehrungsformen/pesketarisch':{view: 'pages/ernaehrungsformen/pesketarisch', locals:{layout:'admin-layout'}},
+  'GET /ernaehrungsformen/vegan':{view: 'pages/ernaehrungsformen/vegan', locals:{layout:'admin-layout'}},
 
   'GET /fitnessziele/abnehmen':{view: 'pages/fitnessziele/abnehmen'},
   'GET /fitnessziele/ausdauer':{view: 'pages/fitnessziele/ausdauer'},
