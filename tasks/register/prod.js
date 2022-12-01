@@ -17,7 +17,7 @@ module.exports = function(grunt) {
     'compileAssets',
     'babel',         //« Remove this to skip transpilation in production (not recommended)
     'concat',
-    'uglify',
+   // 'uglify',
     'cssmin',
     'sails-linker:prodJs',
     'sails-linker:prodStyles',

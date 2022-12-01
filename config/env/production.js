@@ -47,6 +47,13 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     default: {
+      adapter: 'sails-mysql',
+      host: '193.196.53.194',
+      port: 33061,
+      user: 'user8_prod',
+      password: 'a100103',
+      database: 'gainz_prod'
+     
       // adapter: 'sails-mysql',
       // url: 'mysql://user:password@host:port/database',
       //--------------------------------------------------------------------------
@@ -236,7 +243,7 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     cookie: {
-      // secure: true,
+      secure: true,
       maxAge: 24 * 60 * 60 * 1000,  // 24 hours
     },
 
@@ -269,7 +276,9 @@ module.exports = {
     //   'https://example.com',
     //   'https://staging.example.com',
     // ],
-
+    onlyAllowOrigins: [
+      'https://gainz.onrender.com'
+    ]
 
     /***************************************************************************
     *                                                                          *
@@ -340,7 +349,7 @@ module.exports = {
     * (https://sailsjs.com/config/http)                                        *
     *                                                                          *
     ***************************************************************************/
-    // trustProxy: true,
+     trustProxy: true,
 
   },
 
@@ -355,7 +364,7 @@ module.exports = {
   * this, just try deploying without setting it and see if it works.)       *
   *                                                                         *
   ***************************************************************************/
-  // port: 80,
+   port: 10000,
 
 
 
@@ -389,7 +398,7 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    baseUrl: 'https://example.com',
+    baseUrl: 'https://.gainz.onrender.com',
     internalEmailAddress: 'support@example.com',
 
     // sendgridSecret: 'SG.fake.3e0Bn0qSQVnwb1E4qNPz9JZP5vLZYqjh7sn8S93oSHU',
