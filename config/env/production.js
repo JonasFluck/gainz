@@ -277,7 +277,7 @@ module.exports = {
     //   'https://staging.example.com',
     // ],
     onlyAllowOrigins: [
-      'https://gainz.onrender.com'
+      'https://gainz-qkql.onrender.com'
     ]
 
     /***************************************************************************
@@ -398,7 +398,7 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    baseUrl: 'https://.gainz.onrender.com',
+    baseUrl: 'https://gainz-qkql.onrender.com',
     internalEmailAddress: 'support@example.com',
 
     // sendgridSecret: 'SG.fake.3e0Bn0qSQVnwb1E4qNPz9JZP5vLZYqjh7sn8S93oSHU',
