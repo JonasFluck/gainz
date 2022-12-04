@@ -72,15 +72,16 @@ module.exports.routes = {
   'GET /product/product/destroy/:id':{controller:'ProductController', action:'destroy'},
   'POST /product/product/update/:id':{controller:'ProductController', action:'update'},
   'GET /product/product/edit/:id': { controller: 'ProductController', action: 'edit' },
+  'GET /product/product/search': {controller:'ProductController', action:'search'},
 
 
   'GET /product/product:id': 'product.findOne',
   //'GET /product/:id': 'product.destroy', 
 
   //admin views
-  'GET /product/product':{controller:'ProductController', action:'find', locals:{layout:'admin-layout'}},
+  'GET /product/product':{controller:'ProductController', action:'find'},
   'GET /admin':{view: 'pages/admin/admin', locals:{layout:'admin-layout'}},
-  'GET /admin/search':{ controller:'ProductController', action:'search'},
+
  
 
   'GET /ernaehrungsformen/vegetarisch':{view: 'pages/ernaehrungsformen/vegetarisch', locals:{layout:'admin-layout'}},
