@@ -58,13 +58,13 @@
                                         <%= product.price %>
                                     </td>
                                     <td>
-                                        <a href="/product/show<%= product.id %>" class="button is-info">Show</a>
+                                        <a href="/product/product/show<%= product.id %>" class="button is-info">Show</a>
                                     </td>
                                     <td>
-                                        <a href="/product/edit/<%= product.id %>" class="button is-warning">Edit</a>
+                                        <a href="/product/product/edit/<%= product.id %>" class="button is-warning">Edit</a>
                                     </td>
                                     <td>
-                                        <a href="/product/destroy/<%= product.id %>" class="button is-danger">Delete</a>
+                                        <a href="/product/product/destroy/<%= product.id %>" class="button is-danger">Delete</a>
                                     </td>
                                 </tr>
                                 <% }); %>
@@ -78,7 +78,7 @@
         <div class="modal-background"></div>
         <div class="modal-content has-background-white py-5 px-5">
             <h3 class="title mb-6">Neues Produkt anlegen</h3>
-            <form action="/product" method="post">
+            <form action="/product/product" method="post">
                 <div class="field">
                     <label for="" class="label">Name</label>
                     <div class="control">
