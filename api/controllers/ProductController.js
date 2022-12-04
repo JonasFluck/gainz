@@ -42,6 +42,11 @@ module.exports = {
         res.view('pages/product/productUpdate', {product:product});
     },
         
+    showInfo: async function (req, res) {
+        sails.log.debug("Show single product....")
+        let product = await Product.findOne({id: req.params.id });
+        res.view('pages/product/productInfo', {product:product});
+    },
 
     update: async function (req, res) {
         sails.log.debug("Update single product....")
