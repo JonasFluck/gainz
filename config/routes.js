@@ -13,7 +13,7 @@ module.exports.routes = {
   //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
-  'GET /':                   { action: 'pages/homepage' },
+  'GET /':                   { action: 'view-homepage-or-redirect' },
   'GET /welcome/:unused?':   { action: 'dashboard/view-welcome' },
 
   'GET /faq':                { action:   'view-faq' },
@@ -65,20 +65,20 @@ module.exports.routes = {
 
 
   //Unsere Routen
-  '/': { controller:'ProductController', action:'findTop'},
+  //'/': { controller:'ProductController', action:'findTop'},
  
   //'GET /product/new':{view: 'pages/product/new'}, 
-  'POST /product':{controller:'ProductController', action:'create'},
-  'GET /product/destroy/:id':{controller:'ProductController', action:'destroy'},
-  'POST /product/update/:id':{controller:'ProductController', action:'update'},
-  'GET /product/edit/:id': { controller: 'ProductController', action: 'edit' },
+  'POST /product/product':{controller:'ProductController', action:'create'},
+  'GET /product/product/destroy/:id':{controller:'ProductController', action:'destroy'},
+  'POST /product/product/update/:id':{controller:'ProductController', action:'update'},
+  'GET /product/product/edit/:id': { controller: 'ProductController', action: 'edit' },
 
 
-  'GET /product:id': 'product.findOne',
+  'GET /product/product:id': 'product.findOne',
   //'GET /product/:id': 'product.destroy', 
 
   //admin views
-  'GET /product':{controller:'ProductController', action:'find', locals:{layout:'admin-layout'}},
+  'GET /product/product':{controller:'ProductController', action:'find', locals:{layout:'admin-layout'}},
   'GET /admin':{view: 'pages/admin/admin', locals:{layout:'admin-layout'}},
   'GET /admin/search':{ controller:'ProductController', action:'search'},
  
