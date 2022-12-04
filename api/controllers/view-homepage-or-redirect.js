@@ -25,11 +25,12 @@ module.exports = {
 
   fn: async function () {
 
+    let products = await Product.find({limit: 4} );
     if (this.req.me) {
       throw {redirect:'/welcome'};
     }
 
-    return {};
+    return {products};
 
   }
 

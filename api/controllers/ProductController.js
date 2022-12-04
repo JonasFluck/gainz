@@ -24,6 +24,12 @@ module.exports = {
         res.view('pages/product', { products: products, layout: 'admin-layout' });
     },
 
+    findTop: async function (req, res){
+        sails.log.debug("List top 3 products")
+        let products = await Product.find({limit: 4} );
+        res.view('/', {products: products});
+    },
+
     destroy: async function (req, res) {
         sails.log.debug("Destroy single product....")
         await Product.destroyOne({ id: req.params.id });

@@ -65,7 +65,7 @@ module.exports.routes = {
 
 
   //Unsere Routen
-  '/': { view: 'pages/homepage' },
+  '/': { controller:'ProductController', action:'findTop'},
  
   //'GET /product/new':{view: 'pages/product/new'}, 
   'POST /product':{controller:'ProductController', action:'create'},
