@@ -50,7 +50,7 @@ module.exports = {
     },
         
     search: async function (req, res) {
-        sails.log.debug('Suche nach ${req.query.search}');
+        sails.log.debug(`Suche nach ${req.query.search}`);
         let searchedProducts = await Product.find({
             or: [
                 { name: { contains: req.query.search } },
