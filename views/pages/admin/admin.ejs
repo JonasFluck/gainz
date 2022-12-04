@@ -64,7 +64,7 @@
                 <div class="card-content">
                     <div class="content">
                         <div class="control has-icons-left has-icons-right">
-                            <form action="/product/search" method="get">
+                            <form action="/product/product/search" method="get">
                             <input type="text" name="search" placeholder="Search…" class="input input-bordered" />
                             <div class="card-footer is-variable">
                                 <button class="button is-primary card-footer-item" id="searchProductButton">
@@ -126,7 +126,7 @@
         <div class="modal-background"></div>
         <div class="modal-content has-background-white py-5 px-5">
             <h3 class="title mb-6">Neues Produkt anlegen</h3>
-            <form action="/product" method="post">
+            <form action="/product/product" method="post">
                 <div class="field">
                     <label class="label">Name</label>
                     <div class="control">
@@ -180,7 +180,7 @@
         })
     
         allProductButton.addEventListener('click',()=>{
-            location.href = "/product"
+            location.href = "/product/product"
         })
     </script>
 </body>
