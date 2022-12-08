@@ -17,7 +17,8 @@ module.exports = {
 
     redirect: {
       responseType: 'redirect',
-      description: 'Requesting user is logged in, so redirect to the internal welcome page.'
+      description: 'Requesting user is logged in, so redirect to the internal welcome page.',
+      viewTemplatePath: 'pages/homepage'
     },
 
   },
@@ -26,9 +27,11 @@ module.exports = {
   fn: async function () {
 
     let products = await Product.find({limit: 4} );
+    /*
     if (this.req.me) {
-      throw {redirect:'/welcome'};
-    }
+      throw {redirect:'/'};
+    }*/
+
 
     return {products};
 

@@ -1,0 +1,98 @@
+<body>
+    <!-- breadcrumbs -->
+    <div class="section pt-4 pb-0">
+        <nav class="breadcrumb has-arrow-separator has-background-white">
+            <ul class="container is-size-6">
+                <li><a class="has-text-primary" href="/">Shop</a></li>
+                <!-- <li><a class="has-text-warning-dark">Techie Coffee</a></li>
+            <li><a class="has-text-warning-dark">Shop</a></li> -->
+                <li class="is-active"><a class="has-text-grey"><%= product.name %></a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- product info -->
+    <section class="section">
+        <div class="container">
+            <div class="columns is-vcentered is-multiline">
+                <div class="column is-6-tablet is-3-desktop">
+                    <h1 class="is-size-3-mobile is-size-1-desktop title"><%= product.name %></h1>
+                    <h2 class="is-size-3-mobile is-size-2-desktop subtitle"><%= product.description %></h2>
+                </div>
+                <div class="column is-6-tablet is-5-desktop has-text-centered">
+                    <img src="/images/products/protein.jpg" alt="Docker Coffee Image" class="px-6">
+                </div>
+                <div class="column is-12-tablet is-4-desktop">
+                    <div class="is-size-4 mb-4"><%= product.price %>€</div>
+                    <!--<p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, neque!</p>-->
+                    <form>
+                        <div class="control my-5">
+                            <div class="select is-dark">
+                                <select>
+                                    <option>Small (250g)</option>
+                                    <option>Medium (500g)</option>
+                                    <option>Large (750g)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="button is-primary is-large is-outlined" id="add-to-cart">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-8 is-variable">
+                <div class="column is-7-tablet">
+                    <!-- tabbed content -->
+                    <div class="tabs is-boxed">
+                        <ul>
+                            <li class="is-active" data-target="product-details">
+                                <a>Product Details</a>
+                            </li>
+                            <li data-target="delivery-info">
+                                <a>Delivery Information</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="px-2" id="tab-content">
+                        <div id="product-details">
+                            <h3 class="is-size-5 title">Product Details</h3>
+                            <p><%= product.descriptionLong %></p>
+                        </div>
+                        <div class="is-hidden" id="delivery-info">
+                            <h3 class="is-size-5 title">Delivery Information</h3>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem nemo commodi ipsum iusto
+                                minima natus aliquid harum distinctio consequuntur perspiciatis, tempore expedita fugiat
+                                neque soluta! Dolores eius eaque dolor voluptatibus!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+
+// tabs
+const tabs = document.querySelectorAll('.tabs li');
+const tabContentBoxes = document.querySelectorAll('#tab-content > div');
+
+tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+        tabs.forEach(item => item.classList.remove('is-active'));
+        tab.classList.add('is-active');
+
+        const target = tab.dataset.target;
+        tabContentBoxes.forEach(box => {
+            if (box.getAttribute('id') === target) {
+                box.classList.remove('is-hidden');
+            } else {
+                box.classList.add('is-hidden');
+            }
+        })
+    })
+});
+</script>
