@@ -73,6 +73,7 @@ module.exports.routes = {
   'POST /product/product/update/:id':{controller:'ProductController', action:'update'},
   'GET /product/product/edit/:id': { controller: 'ProductController', action: 'edit' },
   'GET /product/productInfo/:id': { controller: 'ProductController', action: 'showInfo' },
+  'GET /product/product/search': {controller:'ProductController', action:'search'},
 
 
   'GET /product/product:id': 'product.findOne',
