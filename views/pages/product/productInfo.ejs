@@ -60,9 +60,7 @@
                     <div class="px-2" id="tab-content">
                         <div id="product-details">
                             <h3 class="is-size-5 title">Product Details</h3>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem nemo commodi ipsum iusto
-                                minima natus aliquid harum distinctio consequuntur perspiciatis, tempore expedita fugiat
-                                neque soluta! Dolores eius eaque dolor voluptatibus!</p>
+                            <p><%= product.descriptionLong %></p>
                         </div>
                         <div class="is-hidden" id="delivery-info">
                             <h3 class="is-size-5 title">Delivery Information</h3>
@@ -72,82 +70,29 @@
                         </div>
                     </div>
                 </div>
-                <!--<div class="column is-5-tablet">-->
-                <!-- message box -->
-                <!--<div class="message">
-                        <div class="message-header">
-                            <p>Earn Points with the Techie Club</p>
-                        </div>
-                        <div class="message-body">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni architecto nostrum quae
-                                earum dolores, non rerum necessitatibus iste neque esse vero. Perspiciatis eos explicabo
-                                illum modi maiores placeat obcaecati quos.</p>
-                            <div class="has-text-centered mt-5">
-                                <button class="button" id="signup">Sign Up</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
             </div>
         </div>
     </section>
-
-    <!-- cards -->
-    <!--
-    <section class="section is-hidden-mobile">
-        <div class="container">
-            <h3 class="title has-text-centered is-size-4">Related Products</h3>
-            <div class="columns mt-5 is-8 is-variable is-centered">
-                <div class="column is-4-tablet is-3-desktop">
-                    <div class="card">
-                        <div class="card-image has-text-centered px-6">
-                            <img src="./img/p1.png" alt="product">
-                        </div>
-                        <div class="card-content">
-                            <p>₹1339</p>
-                            <p class="title is-size-5">Cortado Cup</p>
-                        </div>
-                        <footer class="card-footer">
-                            <p class="card-footer-item">
-                                <a href="" class="has-text-grey">View Product</a>
-                            </p>
-                        </footer>
-                    </div>
-                </div>
-                <div class="column is-4-tablet is-3-desktop">
-                    <div class="card">
-                        <div class="card-image has-text-centered px-6">
-                            <img src="./img/p2.png" alt="product">
-                        </div>
-                        <div class="card-content">
-                            <p>₹1339</p>
-                            <p class="title is-size-5">Docker Light</p>
-                        </div>
-                        <footer class="card-footer">
-                            <p class="card-footer-item">
-                                <a href="" class="has-text-grey">View Product</a>
-                            </p>
-                        </footer>
-                    </div>
-                </div>
-                <div class="column is-4-tablet is-3-desktop">
-                    <div class="card">
-                        <div class="card-image has-text-centered px-6">
-                            <img src="./img/p3.png" alt="product">
-                        </div>
-                        <div class="card-content">
-                            <p>₹1339</p>
-                            <p class="title is-size-5">Peruvian Cocoa</p>
-                        </div>
-                        <footer class="card-footer">
-                            <p class="card-footer-item">
-                                <a href="" class="has-text-grey">View Product</a>
-                            </p>
-                        </footer>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    -->
 </body>
+<script>
+
+// tabs
+const tabs = document.querySelectorAll('.tabs li');
+const tabContentBoxes = document.querySelectorAll('#tab-content > div');
+
+tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+        tabs.forEach(item => item.classList.remove('is-active'));
+        tab.classList.add('is-active');
+
+        const target = tab.dataset.target;
+        tabContentBoxes.forEach(box => {
+            if (box.getAttribute('id') === target) {
+                box.classList.remove('is-hidden');
+            } else {
+                box.classList.add('is-hidden');
+            }
+        })
+    })
+});
+</script>
