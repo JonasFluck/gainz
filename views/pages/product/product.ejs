@@ -16,6 +16,7 @@
             </p>
         </div>
     </section>
+   
     <div class='container'>
         <div class='columns is-full'>
             <div class='column is-full'>
@@ -29,14 +30,21 @@
                                 <th>Category</th>
                                 <th>Price</th>
                                 <th></th>
-                                <th></th>
-                                <th>
+                                <th>  </div>
                                     <div class="is-variable">
                                         <button class="button is-primary card-footer-item" id="newProductButton">
                                             Neues Produkt anlegen
                                         </button>
                                     </div>
                                 </th>
+                                <th>
+                                    <div class="is-variable">
+                                        <button class="button is-primary card-footer-item" id="searchProductButton">
+                                            Produkt suchen
+                                        </button>
+                                    </div>
+                                </th>
+                            </div>
                             </tr>
                         </thead>
                         <tbody>
@@ -122,11 +130,31 @@
         </div>
     </div>
 
+    <div class="modal" id="searchModel">
+        <div class="modal-background" id="searchModel-background"></div>
+        <div class="modal-content has-background-white py-5 px-5">
+            <h3 class="title mb-6">Produkt suchen</h3>
+                <form action="/product/product/search" method="get">
+                <input type="text" name="search" placeholder="Search…" class="input input-bordered" />
+                <div class="card-footer is-variable">
+                    <button class="button is-primary card-footer-item" id="searchProductButton">
+                        Produkt suchen
+                    </button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script>
         //modal
         const newProductButton = document.querySelector('#newProductButton')
         const modalBg = document.querySelector('.modal-background');
         const modal = document.querySelector('.modal');
+        const searchProductButton = document.querySelector('#searchProductButton');
+        const modalBgSearch = document.querySelector('#searchModel-background');
+        const modalSearch = document.querySelector('#searchModel');
+    
 
         newProductButton.addEventListener('click', () => {
             modal.classList.add('is-active');
@@ -136,6 +164,14 @@
             modal.classList.remove('is-active');
         })
 
+        searchProductButton.addEventListener('click', () => {
+            modalSearch.classList.add('is-active');
+        })
+
+        modalBgSearch.addEventListener('click', () => {
+            modalSearch.classList.remove('is-active');
+        })
+    
     </script>
 
 </body>

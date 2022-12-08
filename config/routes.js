@@ -79,16 +79,21 @@ module.exports.routes = {
   //'GET /product/:id': 'product.destroy', 
 
   //admin views
-  'GET /product/product':{controller:'ProductController', action:'find', locals:{layout:'admin-layout'}},
+  'GET /product/product':{controller:'ProductController', action:'find'},
   'GET /admin':{view: 'pages/admin/admin', locals:{layout:'admin-layout'}},
-  'GET /admin/search':{ controller:'ProductController', action:'search'},
+
  
+  'GET /ernaehrungsformen/ernaehrungsformen':{view: 'pages/ernaehrungsformen/ernaehrungsformen'},
+  'GET /ernaehrungsformen/vegetarisch':{view: 'pages/ernaehrungsformen/vegetarisch'},
+  'GET /ernaehrungsformen/pesketarisch':{view: 'pages/ernaehrungsformen/pesketarisch'},
+  'GET /ernaehrungsformen/vegan':{view: 'pages/ernaehrungsformen/vegan'},
 
-  'GET /ernaehrungsformen/vegetarisch':{view: 'pages/ernaehrungsformen/vegetarisch', locals:{layout:'admin-layout'}},
-  'GET /ernaehrungsformen/pesketarisch':{view: 'pages/ernaehrungsformen/pesketarisch', locals:{layout:'admin-layout'}},
-  'GET /ernaehrungsformen/vegan':{view: 'pages/ernaehrungsformen/vegan', locals:{layout:'admin-layout'}},
-
+  'GET /fitnessziele/fitnessziele': {view: 'pages/fitnessziele/fitnessziele'},
   'GET /fitnessziele/abnehmen':{view: 'pages/fitnessziele/abnehmen'},
   'GET /fitnessziele/ausdauer':{view: 'pages/fitnessziele/ausdauer'},
   'GET /fitnessziele/muskelaufbau':{view: 'pages/fitnessziele/muskelaufbau'},
+
+  'GET /kleidung/kleidung' : {view: 'pages/kleidung/kleidung'},
+
+  'GET /nutrition/nutrition' : {view: 'pages/nutrition/nutrition'},
 };
