@@ -61,9 +61,9 @@ module.exports = function(grunt) {
         appRoot: '.tmp/public'
       },
       files: {
-        '.tmp/public/**/*.html': ['.tmp/public/min/production.min.js'],
-        'views/**/*.html': ['.tmp/public/min/production.min.js'],
-        'views/**/*.ejs': ['.tmp/public/min/production.min.js']
+        '.tmp/public/**/*.html': ['.tmp/public/concat/production.js'],
+        'views/**/*.html': ['.tmp/public/concat/production.js'],
+        'views/**/*.ejs': ['.tmp/public/concat/production.js']
       }
     },
 
