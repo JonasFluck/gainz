@@ -398,7 +398,8 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    baseUrl: 'https://gainz-qkql.onrender.com',
+    //baseUrl: 'https://gainz-qkql.onrender.com',
+    baseUrl: 'http://localhost',
     internalEmailAddress: 'support@example.com',
 
     // sendgridSecret: 'SG.fake.3e0Bn0qSQVnwb1E4qNPz9JZP5vLZYqjh7sn8S93oSHU',
