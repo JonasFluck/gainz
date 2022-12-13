@@ -86,29 +86,30 @@
         <div class="modal-background"></div>
         <div class="modal-content has-background-white py-5 px-5">
             <h3 class="title mb-6">Neues Produkt anlegen</h3>
-            <form action="/product/product" method="post">
+            <form action="/product/product" method="post" onsubmit="return validate()">
                 <div class="field">
                     <label for="" class="label">Name</label>
                     <div class="control">
-                        <input type="text" class="input" placeholder="Name" name="name" maxlength="80">
+                        <input type="text" class="input" placeholder="Name" name="name" maxlength="80" required >
                     </div>
                 </div>
                 <div class="field">
                     <label for="" class="label">Price</label>
                     <div class="control">
-                        <input type="number" class="input" step="any" placeholder="Price" name="price">
+                        <div id="validationerror" class="alert alert-danger" style="display:none">Produkt muss zwischen 1€ und 999.99€ kosten</div>
+                        <input type="number" class="input" step="any" placeholder="Price" name="price" maxlength="8" required>
                     </div>
                 </div>
                 <div class="field">
                     <label for="" class="label">Description</label>
                     <div class="control">
-                        <input type="text" class="input" placeholder="Description" name="description" maxlength="40">
+                        <input type="text" class="input" placeholder="Description" name="description" maxlength="40" required>
                     </div>
                 </div>
                 <div class="field">
                     <label for="" class="label">Description ausführlich</label>
                     <div class="control">
-                        <input type="text" class="input" placeholder="Description ausführlich" name="descriptionLong" maxlength="300">
+                        <input type="text" class="input" placeholder="Description ausführlich" name="descriptionLong" maxlength="300" required>
                     </div>
                 </div>
                 <div class="field">
@@ -158,19 +159,31 @@
 
         newProductButton.addEventListener('click', () => {
             modal.classList.add('is-active');
-        })
+        });
 
         modalBg.addEventListener('click', () => {
             modal.classList.remove('is-active');
-        })
+        });
 
         searchProductButton.addEventListener('click', () => {
             modalSearch.classList.add('is-active');
-        })
+        });
 
         modalBgSearch.addEventListener('click', () => {
             modalSearch.classList.remove('is-active');
-        })
+        });
+
+        function validate() {
+        console.log("Validate Price....")
+        let price = document.querySelector("input[name='price']").value;
+        console.log("Price: "+price)
+        if (price<=999.99 && price>=0)  {
+            return true;
+        } else {
+            document.querySelector("#validationerror").style.display = "block";
+            return false;
+        }
+    }
     
     </script>
 

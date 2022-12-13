@@ -14,14 +14,21 @@ module.exports = {
     create: async function (req, res) {
         sails.log.debug("Create product")
         let params = req.allParams();
-        await Product.create(params);
-        res.redirect('/product/product');
+        await Product.create(req.allParams()).then(()=>{
+            res.redirect('/product/product');
+        }).catch(
+            (err) => {
+                sails.log.debug("Error" + err.message)
+                res.view('/product/product',{"message": err.message,"name":
+            req.body.name,"Name": req.body.name})
+            }
+        );
     },
 
     find: async function (req, res) {
         sails.log.debug("List all products")
         let products = await Product.find()
-        res.view('pages/product/product', { products: products, layout: 'admin-layout' });
+        res.view('pages/product/product', { products: products, layout: 'admin-layout' }); 
     },
 
     findTop: async function (req, res){
