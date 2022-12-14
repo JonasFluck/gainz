@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <section class="hero is-primary has-text-centered">
+        <div class="hero-body">
+            <p class="title">
+                Warenkorb
+            </p>
+        </div>
+    </section>
+
+    <div class='container'>
+        <div class='columns is-full'>
+            <div class='column is-full'>
+                <div class="table-container">
+                    <table class="table is-striped mx auto is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <!--Bild-->
+                                <th></th>
+                                <!--Name-->
+                                <th></th>
+                                <!--Menge-->
+                                <th></th>
+                                <!--Preis-->
+                                <th></th>
+                                <!--Delete-->
+                            </tr>
+                        </thead>
+                        <% if(req.session.basket && req.session.basket.length> 0){ %>
+                            <tbody>
+                                <% req.session.basket.forEach(function(product,index){ %>
+                                    <tr>
+                                        <td>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image is-square">
+                                                        <img src="/images/products/protein.jpg" alt="product">
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="product-title">
+                                            <%= product.name %> <BR>
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td class="product-price">
+                                            <%= product.price %> &euro;
+                                        </td>
+                                        <td class="product-delete">
+                                            <a class="button is-danger"
+                                                href="/order/basket/remove/<%= index %>">entfernen</a>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                    </table>
+                    <div class="buttons is-right">
+                        <a class="button is-info is-right" href="/">Weitershoppen</a>
+                        <a class="button is-primary is-right" href="/order/step1">Bestellung abschliessen</a>
+                    </div>
+                    <% } else{ %>
+                        <p class="has-text-centered title">Der Warenkorb ist leer :(</p>
+                        <div class="buttons is-centered">
+                            <a class="button is-info is-centered" href="/">Weitershoppen</a>
+                        </div>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
