@@ -42,6 +42,8 @@ module.exports = {
         sails.log.debug(param);
 
         await Order.create(param).then(()=>{
+            
+        req.session.basket = [];
             res.redirect('/order/step2');
         }).catch(
             (err) => {
