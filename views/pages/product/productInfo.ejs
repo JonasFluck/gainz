@@ -24,7 +24,6 @@
                 </div>
                 <div class="column is-12-tablet is-4-desktop">
                     <div class="is-size-4 mb-4"><%= product.price %>€</div>
-                    <!--<p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, neque!</p>-->
                     <form>
                         <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
                         <div class="control my-5">
@@ -36,7 +35,7 @@
                                 </select>
                             </div>
                         </div>
-                        <button class="button is-primary is-large is-outlined" id="add-to-cart">Add to Cart</button>
+                        <a href="/order/basket/put/<%= product.id %>" class="button is-primary">Add to cart</a>
                     </form>
                 </div>
             </div>
@@ -75,12 +74,34 @@
             </div>
         </div>
     </section>
+    <div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content has-background-white py-5 px-5">
+            <h3 class="title mb-6">Produkt <%= product.name %> wurde dem Warenkorb hinzugefügt !</h3>
+            <a href="/order/basket" class="button is-warning">Zum Warenkorb</a>
+            <a href="/" class="button is-submit">Weitershoppen</a>          
+        </div>
+    </div>
 </body>
 <script>
 
 // tabs
 const tabs = document.querySelectorAll('.tabs li');
 const tabContentBoxes = document.querySelectorAll('#tab-content > div');
+const modalBg = document.querySelector('.modal-background');
+
+window.onload = function(){  
+    if(showModal != null){
+        if(showModal === true){
+        modal.classList.add('is-active')
+    }
+    }
+}
+
+
+modalBg.addEventListener('click', () => {
+            modal.classList.remove('is-active');
+        });
 
 tabs.forEach((tab) => {
     tab.addEventListener('click', () => {

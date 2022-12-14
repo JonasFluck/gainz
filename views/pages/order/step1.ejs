@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="section pt-4 pb-0">
+        <nav class="breadcrumb has-arrow-separator has-background-white is-centered">
+            <ul class="container ">
+                <li><a class="has-text-primary" href="/">Shop</a></li>
+                <li class="is-active"><a class="has-text-grey">Warenkorb</a></li>
+            </ul>
+        </nav>
+    </div>
+    <p class="title">Produkte Bestellen</p>
+    <div class="container is-fluid">
+        <div class="columns">
+            <div class="column is-7">
+                <form action="/order/step2" method="POST">
+                    <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                    <p class="subtitle">Lieferadresse</p>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" maxlength="80" name="name" required >
+                    </div>
+                    <div class="form-group">
+                        <label>Vorname</label>
+                        <input type="text" class="form-control" maxlength="80" name="vorname" required >
+                    </div>
+                    <div class="form-group">
+                        <label>Straße und Hausnummer</label>
+                        <input type="text" class="form-control" maxlength="80" name="strasse" required > 
+                    </div>
+                    <div class="form-group">
+                        <label>Postleitzahl</label>
+                        <input type="number" class="form-control" onKeyPress="if(this.value.length==5) return false;" name="plz" required >
+                    </div>
+                    <div class="form-group">
+                        <label>Stadt</label>
+                        <input type="text" class="form-control" name="stadt" maxlength="80" required >
+                    </div>
+                    <a class="button is-warning mb-4" href="/order/basket">Zurück</a>
+                    <button class="button is-primary mb-4" type="submit">Kostenpflichtig bestellen</button>
+                </form>
+            </div>
+            <div class="column is-5">
+                <div class="table-container">
+                    <table class="table is-striped mx auto is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <!--Bild-->
+                                <th></th>
+                                <!--Name-->
+                                <th></th>
+                                <!--Menge-->
+                                <th></th>
+                                <!--Preis-->
+                                <th></th>
+                                <!--Delete-->
+                            </tr>
+                        </thead>
+                            <tbody>
+                                <% req.session.basket.forEach(function(product,index){ %>
+                                    <tr>
+                                        <td>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image is-square">
+                                                        <img src="/images/products/protein.jpg" alt="product">
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="product-title">
+                                            <%= product.name %> <BR>
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td class="product-price">
+                                            <%= product.price %> &euro;
+                                        </td>
+                                        <td class="product-delete">
+                                            <a class="button is-danger"
+                                                href="/order/basket/remove/<%= index %>">entfernen</a>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th></th>
+                                    <!--Bild-->
+                                    <th></th>
+                                    <!--Name-->
+                                    <th></th>
+                                    <!--Menge-->
+                                    <th></th>
+                                    <!--Preis-->
+                                    <th></th>
+                                    <!--Delete-->
+                                </tr>
+                            </tfoot>
+                    </table>
+                    <p class="has-text-centered subtitle">Gesamtpreis <%= priceSum %>€</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -16,6 +16,18 @@ module.exports.policies = {
     '*': 'is-logged-in',
     'showInfo' : true,
     },
+    BasketController: {
+      '*': 'is-logged-in',
+      'show' : true,
+      'put' : true,
+      'remove' : true,
+      },
+      OrderController: {
+        '*': 'is-logged-in',
+        'showFirstPage' : true,
+        'order' : true,
+        'showSecondPage' : true,
+        },
   // Bypass the `is-logged-in` policy for:
   'entrance/*': true,
   'account/logout': true,

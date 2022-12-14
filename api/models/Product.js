@@ -7,5 +7,10 @@ module.exports = {
     price:{type: 'number', columnType: 'DECIMAL(6,2)', required: true},
     category:{type:'number', columnType:'INTEGER',required: true},
     image: { type: 'string', columnType: 'varchar(128)' },
+    orders: {
+        collection: 'order',
+        via: 'products'
+    }
     },
+    
 };

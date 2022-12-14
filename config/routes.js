@@ -97,4 +97,16 @@ module.exports.routes = {
   'GET /kleidung/kleidung' : {view: 'pages/kleidung/kleidung'},
 
   'GET /nutrition/nutrition' : {view: 'pages/nutrition/nutrition'},
+
+
+  //shopping basket
+  'GET /order/basket': {controller:'BasketController', action:'show'},
+  'GET /order/basket/put/:id': {controller:'BasketController', action:'put'},
+  'GET /order/basket/remove/:id': {controller:'BasketController', action:'remove'},
+
+  //Bestellung
+  'GET /order/step1': {controller:'OrderController', action:'showFirstPage'},
+  'POST /order/step2':{controller:'OrderController', action:'order'},
+  'GET /order/step2':{controller:'OrderController', action:'showSecondPage'},
+
 };
