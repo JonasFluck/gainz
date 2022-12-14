@@ -12,6 +12,10 @@ module.exports.policies = {
 
   '*': 'is-logged-in',
 
+  ProductController: {
+    '*': 'is-logged-in',
+    'showInfo' : true,
+    },
   // Bypass the `is-logged-in` policy for:
   'entrance/*': true,
   'account/logout': true,

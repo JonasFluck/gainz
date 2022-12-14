@@ -85,6 +85,7 @@
         <div class="modal-content has-background-white py-5 px-5">
             <h3 class="title mb-6">Neues Produkt anlegen</h3>
             <form action="/product/product" method="post">
+                <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
                 <div class="field">
                     <label class="label">Name</label>
                     <div class="control">

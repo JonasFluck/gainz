@@ -11,7 +11,8 @@
         <div class="modal-background"></div>
         <div class="modal-content has-background-white py-5 px-5">
             <h3 class="title mb-6">Produkt bearbeiten</h3>
-            <form action="/product/product/update/<%=product.id%>" method="post">
+            <form action="/product/product/update/<%=product.id%>" method="post" onsubmit="return validate()">
+                <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
                 <div class="field">
                     <label for="" class="label">Name</label>
                     <div class="control">

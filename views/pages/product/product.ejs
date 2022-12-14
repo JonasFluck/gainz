@@ -86,7 +86,8 @@
         <div class="modal-background"></div>
         <div class="modal-content has-background-white py-5 px-5">
             <h3 class="title mb-6">Neues Produkt anlegen</h3>
-            <form action="/product/product" method="post">
+            <form action="/product/product" method="post" onsubmit="return validate()">
+                <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
                 <div class="field">
                     <label for="" class="label">Name</label>
                     <div class="control">
@@ -135,9 +136,10 @@
         <div class="modal-content has-background-white py-5 px-5">
             <h3 class="title mb-6">Produkt suchen</h3>
                 <form action="/product/product/search" method="get">
+                    <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
                 <input type="text" name="search" placeholder="Search…" class="input input-bordered" />
                 <div class="card-footer is-variable">
-                    <button class="button is-primary card-footer-item" id="searchProductButton">
+                    <button class="button is-primary card-footer-item" id="sea rchProductButton">
                         Produkt suchen
                     </button>
                 </div>
