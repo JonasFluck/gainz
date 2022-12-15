@@ -31,7 +31,7 @@ module.exports = {
         sails.log.debug(req.allParams());
         let param = {
             vorname:req.param('vorname'),
-            name:req.param('vorname'), 
+            name:req.param('name'), 
             strasse:req.param('strasse'), 
             stadt:req.param('stadt'),
             plz:req.param('plz'),
