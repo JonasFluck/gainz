@@ -5,100 +5,86 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ausdauer</title>
-
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>GAINZ</title>
 </head>
 
 <body>
-  <div class="columns">
-    <aside class="menu border">
-      <ul class="menu-list has-text-centered mt-6 box">
-        <li><a>Produkte</a></li>
-        <li><a href="#section">Ausdauer </a></li>
-        <li><a>weitere Tipps</a></li>
-      </ul>
-    </aside>
 
-  </div>
-  <section class="section">
-    <div class="container">
-      <h3 class="title has-text-centered is-size-2">Produkte</h3>
-      <div class="columns mt-5 is-8 is-variable">
-        <div class="column is-4-tablet is-3-desktop">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-square">
-                <img src="images/products/protein.jpg" alt="product">
-              </figure>
-            </div>
-            <div class="card-content ">
-              <p class="title is-size-5">Gainz Super Whey</p>
-              <p>12,00€</p>
-            </div>
-            <footer class="card-footer">
-              <p class="card-footer-item">
-                <a href="" class="has-text-grey">Zum Produkt</a>
-              </p>
-            </footer>
+  <!--Navbar-->
+  <nav class="bd-navbar navbar has-background-primary py-3 is-hidden-touch  " role="navigation"
+    aria-label="main navigation" style="max-height: none;">
+    <div id="navbarItems" class="navbar-menu">
+      <div class="navbar-center">
+        <a class="navbar-item has-text-white has-background-primary" href="/nutrition/nutrition">
+          <p class="is-size-3">Nutrition</p>
+        </a>
+        <div class="navbar-item has-dropdown is-hoverable is-right has-text-white has-background-primary">
+          <p class="is-size-3">Fitnessziele</p>
+
+          <div class="navbar-dropdown ">
+            <a class="navbar-item is-size-4" href="/fitnessziele/abnehmen">
+              Abnehmen
+            </a>
+            <a class="navbar-item is-size-4" href="/fitnessziele/muskelaufbau">
+              Muskelaufbau
+            </a>
+            <a class="navbar-item is-size-4" href="/fitnessziele/ausdauer">
+              Ausdauer
+            </a>
           </div>
         </div>
-        <div class="column is-4-tablet is-3-desktop">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-square">
-                <img src="images/products/protein-gummies.jpg" alt="product">
-              </figure>
-            </div>
-            <div class="card-content ">
-              <p class="title is-size-5">Gainz Vitamin Gumz</p>
-              <p>15,00€</p>
-            </div>
-            <footer class="card-footer">
-              <p class="card-footer-item">
-                <a href="" class="has-text-grey">Zum Produkt</a>
-              </p>
-            </footer>
+        <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary">
+          <p class="is-size-3">Ernährungsformen</p>
+
+          <div class="navbar-dropdown ">
+            <a class="navbar-item is-size-4" href="/ernaehrungsformen/vegan">
+              Vegan
+            </a>
+            <a class="navbar-item is-size-4" href="/ernaehrungsformen/vegetarisch">
+              Vegetarisch
+            </a>
+            <a class="navbar-item is-size-4" href="/ernaehrungsformen/pesketarisch">
+              Pesketarisch
+            </a>
           </div>
         </div>
-        <div class="column is-4-tablet is-3-desktop">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-square">
-                <img src="images/products/gym-tank.jpg" alt="product">
-              </figure>
-            </div>
-            <div class="card-content ">
-              <p class="title is-size-5">Gainz Tankz</p>
-              <p>20,00€</p>
-            </div>
-            <footer class="card-footer">
-              <p class="card-footer-item">
-                <a href="" class="has-text-grey">Zum Produkt</a>
-              </p>
-            </footer>
-          </div>
-        </div>
-        <div class="column is-4-tablet is-3-desktop">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-square">
-                <img src="images/products/supps.jpg" alt="product">
-              </figure>
-            </div>
-            <div class="card-content ">
-              <p class="title is-size-5">Gainz Kreatin Pillz</p>
-              <p>10,00€</p>
-            </div>
-            <footer class="card-footer">
-              <p class="card-footer-item">
-                <a href="" class="has-text-grey">Zum Produkt</a>
-              </p>
-            </footer>
-          </div>
-        </div>
+        <a class="navbar-item has-text-white has-background-primary" href="/kleidung/kleidung">
+          <p class="is-size-3">Kleidung</p>
+        </a>
       </div>
     </div>
-  </section>
+  </nav>
+
+<section class="section">
+  <div class="container">
+    <h3 class="title has-text-centered is-size-4">Die besten Produkte für deine Ausdauer</h3>
+    <div class="columns mt-5 is-8 is-variable">
+      <% products.forEach(function(product){ %>
+      <div class="column is-4-tablet is-3-desktop">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-square">
+              <img src="/images/products/protein.jpg" alt="product">
+            </figure>
+          </div>
+          <div class="card-content ">
+            <p class="title is-size-5"><%= product.name %></p>
+            <p><%= product.price %>€</p>
+          </div>
+          <footer class="card-footer">
+            <p class="card-footer-item">
+              <a href="/product/productInfo/<%= product.id %>" class="has-text-grey is-primary">Zum Produkt</a>
+            </p>
+          </footer>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+<!-- Bestseller-->
+
   <section class="section">
     <div class="container">
       <div class="columns is-multiline is-centered">
@@ -119,6 +105,86 @@
       </div>
     </div>
   </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="mt-2 mb-6 is-size-1 is-size-3-mobile has-text-weight-bold has-text-centered">die richtige Haltung?</h2>
+      <div class="columns">
+        <div class="column is-6">
+          <img src="/images/pose.png" alt="product">
+        </div>
+        <div class="column is-6">
+          <p class="subtitle is-4">Eine richtige Pose beim Joggen kann dazu beitragen, Verletzungen zu vermeiden und das
+            Lauferlebnis zu verbessern. Hier sind einige Tipps für eine gute Haltung beim Joggen:
+            Halte deinen Kopf aufrecht und schaue geradeaus. Vermeide es, den Kopf zu weit nach unten oder zu weit nach
+            oben zu neigen.
+            Achte darauf, dass deine Schultern entspannt sind und nicht angespannt oder hochgezogen sind.
+            Vergiss nicht, regelmäßig zu atmen und dich zu entspannen, während du läufst. Dies hilft, den
+            Sauerstofffluss zu optimieren und Verkrampfungen zu vermeiden.
+            Insgesamt solltest du versuchen, eine aufrechte und entspannte Haltung beim Joggen einzunehmen. Dies wird
+            dazu beitragen, deine Leistung zu verbessern und Verletzungen zu vermeiden.<</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="section">
+      <h2 class="mt-2 mb-6 is-size-1 is-size-3-mobile has-text-weight-bold has-text-centered">Berechne deine Kalorien
+      </h2>
+      <div class="container">
+        <div class="columns is-vcentered">
+          <div class="is-two-fifths">
+            <div id="app" class="mr-6">
+              <label class="label">Strecke</label>
+              <input type="number" class="input" placeholder="Strecke" name="distance" v-model="distance">
+              <label class="label">Gewicht </label>
+              <input type="number" class="input" placeholder="Gewicht in kg" name="weight" v-model="weight">
+              <div class="has-text-centered mt-4">
+                <button class="button is-primary" v-on:click="calculateCalories">Berechne deine Kalorien</button>
+                <button class="button is-primary" v-on:click="setCaloriestoZero">Zurücksetzen</button>
+              </div>
+              <p class="has-text-centered mt-4 is-size-3 has-text-primary">Kalorien verbrannt: {{ caloriesBurned }}
+                kcal</p>
+            </div>
+          </div>
+          <div class="column is-is-three-fifths">
+            <div class="columns is-multiline is-centered">
+              <p class="subtitle has-text-grey ml-6">Jogging ist eine der beliebtesten und effektivsten Sportarten,
+                um Kalorien zu verbrennen und die Ausdauer zu steigern. Es gibt jedoch einige Faktoren, die den
+                Kalorienverbrauch während des Joggens beeinflussen, wie die Dauer des Trainings, die Intensität,
+                das Körpergewicht und die Art der Strecke.Neben der Dauer und der Intensität des Joggens gibt es noch
+                weitere Faktoren, die den Kalorienverbrauch beeinflussen. So verbrennt man beispielsweise beim Joggen
+                auf unebenem Gelände mehr Kalorien als auf einer ebenen Strecke. Auch das Körpergewicht spielt eine
+                Rolle, da man bei höherem Gewicht mehr Kalorien verbrennt.
+
+                Um den Kalorienverbrauch beim Joggen möglichst effektiv zu steigern, empfiehlt es sich, regelmäßig zu
+                trainieren und die Intensität langsam zu ste</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data: {
+        distance: 0, // Distance traveled (in kilometers)
+        weight: 0, // Weight (in kilograms)
+        caloriesBurned: 0 // Calories burned
+      },
+      methods: {
+        calculateCalories: function () {
+          this.caloriesBurned = this.distance * this.weight * 0.9;
+        },
+        setCaloriestoZero: function () {
+          this.caloriesBurned = 0;
+        }
+      },  
+    });
+  </script>
 </body>
 
 </html>
