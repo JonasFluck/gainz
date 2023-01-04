@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>New Sails App</title>
 
-    <!-- Viewport mobile tag for sensible mobile support -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <title>New Sails App</title>
 
-    <%/* If you want to discourage search engines from indexing this site, uncomment the following line: */%>
-    <%/* <meta name="robots" content="noindex"> */%>
+  <!-- Viewport mobile tag for sensible mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <% /* If you want to discourage search engines from indexing this site, uncomment the following line: */%>
+    <% /* <meta name="robots" content="noindex"> */%>
 
 
 
-    <!--
+      <!--
         Stylesheets and Preprocessors
         ==============================
 
@@ -32,104 +33,115 @@
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
 
-    <!--STYLES-->
-    <link rel="stylesheet" href="/dependencies/bootstrap-4/bootstrap-4.css">
-    <link rel="stylesheet" href="/dependencies/fontawesome.css">
-    <link rel="stylesheet" href="/styles/bulma.css">
-    <link rel="stylesheet" href="/styles/importer.css">
-    <link rel="stylesheet" href="/styles/navbar.css">
-    <!--STYLES END-->
-    <script src="https://kit.fontawesome.com/b0ea4541a8.js" crossorigin="anonymous"></script>
-  </head>
+      <!--STYLES-->
+      <link rel="stylesheet" href="/dependencies/bootstrap-4/bootstrap-4.css">
+      <link rel="stylesheet" href="/dependencies/fontawesome.css">
+      <link rel="stylesheet" href="/styles/bulma.css">
+      <link rel="stylesheet" href="/styles/importer.css">
+      <link rel="stylesheet" href="/styles/navbar.css">
+      <!--STYLES END-->
+      <script src="https://kit.fontawesome.com/b0ea4541a8.js" crossorigin="anonymous"></script>
+</head>
 
-  <body>
-    <div id="wrapper">
-      <nav class="bd-navbar navbar" role="navigation" aria-label="main navigation" style="max-height: none;">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="/"> 
-              <img src="/images/new.png"  alt="logo">
+<body>
+  <div id="wrapper">
+    <nav class="bd-navbar navbar" role="navigation" aria-label="main navigation" style="max-height: none;">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <img src="/images/new.png" alt="logo">
+        </a>
+
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+          data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-center">
+          <form id="search_form">
+            <div class="navbar-item field has-addons">
+              <p class="control is-expanded">
+                <input class="input" name="query" type="text" placeholder="I'm looking for..." required>
+              </p>
+              <p class="control">
+                <button class="button" type="submit">
+                  Search
+                </button>
+              </p>
+            </div>
+          </form>
+          <a class="navbar-item is-hidden-desktop" href="/nutrition/nutrition">
+            <p>Nutrition</p>
           </a>
-
-          <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
+          <a class="navbar-item is-hidden-desktop" href="/fitnessziele/fitnessziele">
+            <p>Fitnessziele</p>
+          </a>
+          <a class="navbar-item is-hidden-desktop" href="/ernaehrungsformen/ernaehrungsformen">
+            <p>Ernährungsformen</p>
+          </a>
+          <a class="navbar-item is-hidden-desktop" href="/kleidung/kleidung">
+            <p>Kleidung</p>
           </a>
         </div>
-      
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-center">
-            <form id="search_form">
-              <div class="navbar-item field has-addons">
-                <p class="control is-expanded">
-                  <input class="input" name="query" type="text" placeholder="I'm looking for..." required>
-                </p>
-                <p class="control">
-                  <button class="button" type="submit">
-                    Search
-                  </button>
-                </p>
-              </div>
-            </form>
-            <a class="navbar-item is-hidden-desktop" href="/nutrition/nutrition">
-              <p>Nutrition</p>
-            </a>
-            <a class="navbar-item is-hidden-desktop" href="/fitnessziele/fitnessziele">
-              <p>Fitnessziele</p>
-            </a>
-            <a class="navbar-item is-hidden-desktop" href="/ernaehrungsformen/ernaehrungsformen">
-              <p>Ernährungsformen</p>
-            </a>
-            <a class="navbar-item is-hidden-desktop" href="/kleidung/kleidung">
-              <p>Kleidung</p>
-            </a>
-          </div>
-          <div class="navbar-end">
-            <a class="navbar-item" href="/login">
-              <span class="icon-text">
-                <span class="icon">
-                  <img src="/images/user.png" alt="User">
-                </span>
-                <span>Konto</span>
+        <div class="navbar-end">
+          <a class="navbar-item" href="/login">
+            <span class="icon-text">
+              <span class="icon">
+                <img src="/images/user.png" alt="User">
               </span>
-            </a> <a class="navbar-item" href="/order/basket">
+              <span>Konto</span>
+            </span>
+          </a> <a class="navbar-item" href="/order/basket" <% if(req.session.basket && req.session.basket.length> 0){ %>
+            <span class="icon-text">
+              <span class="icon">
+               <img src="/images/WarenkorbPunkt.png" alt="Warenkorb">
+              </span>
+             <span>Warenkorb</span>
+            
+            </span>
+            <% } else{ %>
               <span class="icon-text">
                 <span class="icon">
                   <img src="/images/Warenkorb.png" alt="Warenkorb">
                 </span>
                 <span>Warenkorb</span>
               </span>
-            </a>
-          </div>
+              <% } %>
+
+          </a>
         </div>
-      </nav>
-    </div> 
-
-    </body>
-    <%- body %>
-  </div>
-<footer class="footer">
-  <div class="content has-text centered">
-    <div class="links">
-      <div class="level-item">
-        Informationen
       </div>
-      <div class="level-item">
-        Kundenservice
-      </div>
-      <div class="level-item">
-        Hilfe
-      </div>
-      <div class="level-item pt-3">
-        <p>Copyright 2022 GAINZ</p>
-      </div>
-    </div> 
+    </nav>
   </div>
 
-</footer>
+</body>
+<%- body %>
+  </div>
+  <footer class="footer">
+    <div class="content has-text centered">
+      <div class="links">
+        <div class="level-item">
+          Informationen
+        </div>
+        <div class="level-item">
+          Kundenservice
+        </div>
+        <div class="level-item">
+          Hilfe
+        </div>
+        <div class="level-item pt-3">
+          <p>Copyright 2022 GAINZ</p>
+        </div>
+      </div>
+    </div>
+
+  </footer>
 
 
-    <!--
+  <!--
         Client-side Templates
         ========================
 
@@ -150,11 +162,11 @@
               stringfile before they're served.
     -->
 
-    <!--TEMPLATES-->
-    <!--TEMPLATES END-->
+  <!--TEMPLATES-->
+  <!--TEMPLATES END-->
 
 
-    <!--
+  <!--
         Server-side View Locals
         ========================
 
@@ -170,7 +182,7 @@
     -->
 
 
-    <!--
+  <!--
 
       Client-side Javascript
       ========================
@@ -193,40 +205,41 @@
 
     -->
 
-    <!--SCRIPTS-->
-    <script src="/dependencies/sails.io.js"></script>
-    <script src="/dependencies/lodash.js"></script>
-    <script src="/dependencies/jquery.min.js"></script>
-    <script src="/dependencies/vue.js"></script>
-    <script src="/dependencies/vue-router.js"></script>
-    <script src="/dependencies/bootstrap-4/bootstrap-4.bundle.js"></script>
-    <script src="/dependencies/cloud.js"></script>
-    <script src="/dependencies/moment.js"></script>
-    <script src="/dependencies/parasails.js"></script>
-    <script src="/js/cloud.setup.js"></script>
-    <script src="/js/components/account-notification-banner.component.js"></script>
-    <script src="/js/components/ajax-button.component.js"></script>
-    <script src="/js/components/ajax-form.component.js"></script>
-    <script src="/js/components/cloud-error.component.js"></script>
-    <script src="/js/components/js-timestamp.component.js"></script>
-    <script src="/js/components/modal.component.js"></script>
-    <script src="/js/components/stripe-card-element.component.js"></script>
-    <script src="/js/utilities/open-stripe-checkout.js"></script>
-    <script src="/js/navbar.js"></script>
-    <script src="/js/pages/account/account-overview.page.js"></script>
-    <script src="/js/pages/account/edit-password.page.js"></script>
-    <script src="/js/pages/account/edit-profile.page.js"></script>
-    <script src="/js/pages/contact.page.js"></script>
-    <script src="/js/pages/dashboard/welcome.page.js"></script>
-    <script src="/js/pages/entrance/confirmed-email.page.js"></script>
-    <script src="/js/pages/entrance/forgot-password.page.js"></script>
-    <script src="/js/pages/entrance/login.page.js"></script>
-    <script src="/js/pages/entrance/new-password.page.js"></script>
-    <script src="/js/pages/entrance/signup.page.js"></script>
-    <script src="/js/pages/faq.page.js"></script>
-    <script src="/js/pages/homepage.page.js"></script>
-    <script src="/js/pages/legal/privacy.page.js"></script>
-    <script src="/js/pages/legal/terms.page.js"></script>
-    <!--SCRIPTS END-->
+  <!--SCRIPTS-->
+  <script src="/dependencies/sails.io.js"></script>
+  <script src="/dependencies/lodash.js"></script>
+  <script src="/dependencies/jquery.min.js"></script>
+  <script src="/dependencies/vue.js"></script>
+  <script src="/dependencies/vue-router.js"></script>
+  <script src="/dependencies/bootstrap-4/bootstrap-4.bundle.js"></script>
+  <script src="/dependencies/cloud.js"></script>
+  <script src="/dependencies/moment.js"></script>
+  <script src="/dependencies/parasails.js"></script>
+  <script src="/js/cloud.setup.js"></script>
+  <script src="/js/components/account-notification-banner.component.js"></script>
+  <script src="/js/components/ajax-button.component.js"></script>
+  <script src="/js/components/ajax-form.component.js"></script>
+  <script src="/js/components/cloud-error.component.js"></script>
+  <script src="/js/components/js-timestamp.component.js"></script>
+  <script src="/js/components/modal.component.js"></script>
+  <script src="/js/components/stripe-card-element.component.js"></script>
+  <script src="/js/utilities/open-stripe-checkout.js"></script>
+  <script src="/js/navbar.js"></script>
+  <script src="/js/pages/account/account-overview.page.js"></script>
+  <script src="/js/pages/account/edit-password.page.js"></script>
+  <script src="/js/pages/account/edit-profile.page.js"></script>
+  <script src="/js/pages/contact.page.js"></script>
+  <script src="/js/pages/dashboard/welcome.page.js"></script>
+  <script src="/js/pages/entrance/confirmed-email.page.js"></script>
+  <script src="/js/pages/entrance/forgot-password.page.js"></script>
+  <script src="/js/pages/entrance/login.page.js"></script>
+  <script src="/js/pages/entrance/new-password.page.js"></script>
+  <script src="/js/pages/entrance/signup.page.js"></script>
+  <script src="/js/pages/faq.page.js"></script>
+  <script src="/js/pages/homepage.page.js"></script>
+  <script src="/js/pages/legal/privacy.page.js"></script>
+  <script src="/js/pages/legal/terms.page.js"></script>
+  <!--SCRIPTS END-->
   </body>
+
 </html>
