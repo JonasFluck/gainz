@@ -1,194 +1,161 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- exposeLocalsToBrowser() %>
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
 
-<body>
-    <section class="hero is-primary has-text-centered">
-        <div class="hero-body">
-            <p class="title">
-                Products
-            </p>
-        </div>
-    </section>
-   
-    <div class='container'>
-        <div class='columns is-full'>
-            <div class='column is-full'>
-                <div class="table-container">
-                    <table class="table is-striped mx-auto is-fullwidth">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Category</th>
-                                <th>Price</th>
-                                <th></th>
-                                <th>  </div>
-                                    <div class="is-variable">
-                                        <button class="button is-primary card-footer-item" id="newProductButton">
-                                            Neues Produkt anlegen
-                                        </button>
-                                    </div>
-                                </th>
-                                <th>
-                                    <div class="is-variable">
-                                        <button class="button is-primary card-footer-item" id="searchProductButton">
-                                            Produkt suchen
-                                        </button>
-                                    </div>
-                                </th>
+    <body>
+        <div id="product">
+            <section class="hero is-primary has-text-centered">
+                <div class="hero-body">
+                    <p class="title">
+                        Products
+                    </p>
+                </div>
+            </section>
+
+            <div class='container'>
+                <div class='columns is-full'>
+                    <div class='column is-full'>
+                        <div class="table-container">
+                            <table class="table is-striped mx-auto is-fullwidth">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                        <th>Category</th>
+                                        <th>Price</th>
+                                        <th></th>
+                                        <th>
+                        </div>
+                        <div class="is-variable">
+                            <button class="button is-primary card-footer-item" id="newProductButton">
+                                Neues Produkt anlegen
+                            </button>
+                        </div>
+                        </th>
+                        <th>
+                            <div class="is-variable">
+                                <button class="button is-primary card-footer-item" id="searchProductButton">
+                                    Produkt suchen
+                                </button>
                             </div>
+                        </th>
+                    </div>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <% products.forEach(function(product){ %>
+                            <tr>
+                                <td>
+                                    <%= product.id %>
+                                </td>
+                                <td>
+                                    <%= product.name %>
+                                </td>
+                                <td>
+                                    <%= product.description %>
+                                </td>
+                                <td>
+                                    <%= product.category %>
+                                </td>
+                                <td>
+                                    <%= product.price %>
+                                </td>
+                                <td>
+                                    <a href="/product/productInfo/<%= product.id %>" class="button is-info">Show</a>
+                                </td>
+                                <td>
+                                    <a href="/product/product/edit/<%= product.id %>" class="button is-warning">Edit</a>
+                                </td>
+                                <td>
+                                    <a href="/product/product/destroy/<%= product.id %>"
+                                        class="button is-danger">Delete</a>
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <% products.forEach(function(product){ %>
-                                <tr>
-                                    <td>
-                                        <%= product.id %>
-                                    </td>
-                                    <td>
-                                        <%= product.name %>
-                                    </td>
-                                    <td>
-                                        <%= product.description %>
-                                    </td>
-                                    <td>
-                                        <%= product.category %>
-                                    </td>
-                                    <td>
-                                        <%= product.price %>
-                                    </td>
-                                    <td>
-                                        <a href="/product/product/show<%= product.id %>" class="button is-info">Show</a>
-                                    </td>
-                                    <td>
-                                        <a href="/product/product/edit/<%= product.id %>" class="button is-warning">Edit</a>
-                                    </td>
-                                    <td>
-                                        <a href="/product/product/destroy/<%= product.id %>" class="button is-danger">Delete</a>
-                                    </td>
-                                </tr>
-                                <% }); %>
-                        </tbody>
+                            <% }); %>
+                    </tbody>
                     </table>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-content has-background-white py-5 px-5">
-            <h3 class="title mb-6">Neues Produkt anlegen</h3>
-            <form action="/product/product" method="post" onsubmit="return validate()">
-                <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
-                <div class="field">
-                    <label for="" class="label">Name</label>
-                    <div class="control">
-                        <input type="text" class="input" placeholder="Name" name="name" maxlength="80" required >
-                    </div>
-                </div>
-                <div class="field">
-                    <label for="" class="label">Price</label>
-                    <div class="control">
-                        <div id="validationerror" class="alert alert-danger" style="display:none">Produkt muss zwischen 1€ und 999.99€ kosten</div>
-                        <input type="number" class="input" step="any" placeholder="Price" name="price" maxlength="8" required>
-                    </div>
-                </div>
-                <div class="field">
-                    <label for="" class="label">Description</label>
-                    <div class="control">
-                        <input type="text" class="input" placeholder="Description" name="description" maxlength="40" required>
-                    </div>
-                </div>
-                <div class="field">
-                    <label for="" class="label">Description ausführlich</label>
-                    <div class="control">
-                        <input type="text" class="input" placeholder="Description ausführlich" name="descriptionLong" maxlength="300" required>
-                    </div>
-                </div>
-                <div class="field">
-                    <label for="" class="label">Category</label>
-                    <div class="control">
-                        <div class="select is-primary">
-                            <select name="category">
-                                <option value="1">Supplemment</option>
-                                <option value="2">Clothing</option>
-                                <option value="3">Others</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-6 has-text-centered">
-                    <button class="button is-primary" type="submit">Erstellen</button>
-                </div>
-            </form>
-        </div>
-    </div>
 
-    <div class="modal" id="searchModel">
-        <div class="modal-background" id="searchModel-background"></div>
-        <div class="modal-content has-background-white py-5 px-5">
-            <h3 class="title mb-6">Produkt suchen</h3>
-                <form action="/product/product/search" method="get">
-                    <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
-                <input type="text" name="search" placeholder="Search…" class="input input-bordered" />
-                <div class="card-footer is-variable">
-                    <button class="button is-primary card-footer-item" id="sea rchProductButton">
-                        Produkt suchen
-                    </button>
+            <div class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-content has-background-white py-5 px-5">
+                    <h3 class="title mb-6">Neues Produkt anlegen</h3>
+                    <form action="/product/product" method="post" v-on:submit="validate" id="newProductForm">
+                        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                        <div class="field">
+                            <label for="" class="label">Name</label>
+                            <div class="control">
+                                <input type="text" class="input" placeholder="Name" name="name" maxlength="80" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="" class="label">Price</label>
+                            <div class="control">
+                                <div id="validationerror" class="alert alert-danger" style="display:none">Produkt muss
+                                    zwischen 1€
+                                    und 999.99€ kosten</div>
+                                <input type="number" class="input" step="any" placeholder="Price" name="price"
+                                    maxlength="8" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="" class="label">Description</label>
+                            <div class="control">
+                                <input type="text" class="input" placeholder="Description" name="description"
+                                    maxlength="40" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="" class="label">Description ausführlich</label>
+                            <div class="control">
+                                <input type="text" class="input" placeholder="Description ausführlich"
+                                    name="descriptionLong" maxlength="300" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="" class="label">Category</label>
+                            <div class="control">
+                                <div class="select is-primary">
+                                    <select name="category">
+                                        <option value="1">Supplemment</option>
+                                        <option value="2">Clothing</option>
+                                        <option value="3">Others</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 has-text-centered">
+                            <button class="button is-primary" type="submit" v-on:mouseover="changeAction('/product/product')">Erstellen</button>
+                            <button class="button is-primary" type="submit" v-on:mouseover="changeAction('/product/newImage')">Bild Hinzufügen</button>
+                        </div>
+                    </form>
                 </div>
-                </form>
+            </div>
+            <div class="modal" id="searchModel">
+                <div class="modal-background" id="searchModel-background"></div>
+                <div class="modal-content has-background-white py-5 px-5">
+                    <h3 class="title mb-6">Produkt suchen</h3>
+                    <form action="/product/product/search" method="get">
+                        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                        <input type="text" name="search" placeholder="Search…" class="input input-bordered" />
+                        <div class="card-footer is-variable">
+                            <button class="button is-primary card-footer-item" id="searchProductButton">
+                                Produkt suchen
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
+    </body>
 
-    <script>
-        //modal
-        const newProductButton = document.querySelector('#newProductButton')
-        const modalBg = document.querySelector('.modal-background');
-        const modal = document.querySelector('.modal');
-        const searchProductButton = document.querySelector('#searchProductButton');
-        const modalBgSearch = document.querySelector('#searchModel-background');
-        const modalSearch = document.querySelector('#searchModel');
-    
-
-        newProductButton.addEventListener('click', () => {
-            modal.classList.add('is-active');
-        });
-
-        modalBg.addEventListener('click', () => {
-            modal.classList.remove('is-active');
-        });
-
-        searchProductButton.addEventListener('click', () => {
-            modalSearch.classList.add('is-active');
-        });
-
-        modalBgSearch.addEventListener('click', () => {
-            modalSearch.classList.remove('is-active');
-        });
-
-        function validate() {
-        console.log("Validate Price....")
-        let price = document.querySelector("input[name='price']").value;
-        console.log("Price: "+price)
-        if (price<=999.99 && price>=0)  {
-            return true;
-        } else {
-            document.querySelector("#validationerror").style.display = "block";
-            return false;
-        }
-    }
-    
-    </script>
-
-</body>
-
-</html>
+    </html>
