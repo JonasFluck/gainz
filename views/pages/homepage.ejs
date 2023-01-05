@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+<div id="homepage">
   <!--Navbar-->
   <nav class="bd-navbar navbar has-background-primary py-3 is-hidden-touch  " role="navigation"
     aria-label="main navigation" style="max-height: none;">
@@ -43,7 +43,7 @@
             <a class="navbar-item is-size-4" href="/ernaehrungsformen/vegetarisch">
               Vegetarisch
             </a>
-            <a class="navbar-item is-size-4"  href="/ernaehrungsformen/pesketarisch">
+            <a class="navbar-item is-size-4" href="/ernaehrungsformen/pesketarisch">
               Pesketarisch
             </a>
           </div>
@@ -69,36 +69,20 @@
       </div>
     </div>
   </section>
-  
-  <!-- Bestseller-->
+
+  <!--Bestseller-->
   <section class="section">
     <div class="container">
       <h3 class="title has-text-centered is-size-4">Unsere Bestseller</h3>
       <div class="columns mt-5 is-8 is-variable">
-        <% products.forEach(function(product){ %>
-        <div class="column is-4-tablet is-3-desktop">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-square">
-                <img src="/images/products/protein.jpg" alt="product">
-              </figure>
-            </div>
-            <div class="card-content ">
-              <p class="title is-size-5"><%= product.name %></p>
-              <p><%= product.price %>€</p>
-            </div>
-            <footer class="card-footer">
-              <p class="card-footer-item">
-                <a href="/product/productInfo/<%= product.id %>" class="has-text-grey is-primary">Zum Produkt</a>
-              </p>
-            </footer>
+          <div class="column is-4-tablet is-3-desktop" v-for="product in products">
+              <product :product="product"/>
           </div>
-        </div>
-        <% }); %>
       </div>
     </div>
   </section>
-  <!-- Bestseller-->
+
+  <!-- Neuerscheinungen-->
   <section class="section">
     <div class="container">
       <h3 class="title has-text-centered is-size-4">Unsere Neuerscheinungen</h3>
@@ -178,6 +162,8 @@
       </div>
     </div>
   </section>
+</div>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
 </body>
 
 </html>

@@ -74,6 +74,9 @@ module.exports.routes = {
   'GET /product/product/edit/:id': { controller: 'ProductController', action: 'edit' },
   'GET /product/productInfo/:id': { controller: 'ProductController', action: 'showInfo' },
   'GET /product/product/search': {controller:'ProductController', action:'search'},
+  'POST /product/newImage': { controller: 'ProductController', action:'createWithImageStep1' },
+  'POST /newWithImage/': { controller: 'ProductController', action:'createWithImageStep2' },
+
 
 
   'GET /product/product:id': 'product.findOne',
@@ -103,6 +106,7 @@ module.exports.routes = {
   'GET /order/basket': {controller:'BasketController', action:'show'},
   'GET /order/basket/put/:id': {controller:'BasketController', action:'put'},
   'GET /order/basket/remove/:id': {controller:'BasketController', action:'remove'},
+  'GET /order/orders': {controller:'OrderController', action:'find'},
 
   //Bestellung
   'GET /order/step1': {controller:'OrderController', action:'showFirstPage'},

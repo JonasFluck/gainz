@@ -70,8 +70,63 @@ module.exports = {
         });
         if (searchedProducts.length === 0) { searchedProducts = await Product.find(); }
 
-        return res.view('pages/product/product', { products: searchedProducts });
+        return res.view('pages/product/product', { products: searchedProducts, layout:'admin-layout' });
 
-    }
+    },
+
+    createWithImageStep0: async function (req,res) {
+   
+         res.view('pages/product/product');
+       },
+     
+       /**
+        * Store values of form in the session
+        */
+       createWithImageStep1: async function (req, res) {
+         sails.log.debug("Create Product....")
+         req.session.name = req.body.name;
+         req.session.price = req.body.price;
+         req.session.description = req.body.description;
+         req.session.descriptionLong = req.body.descriptionLong;
+         req.session.category = req.body.category;
+         res.view('pages/product/newImage', { productname: req.param("name") })
+       },
+     
+       /**
+        * Uploads an image for a meal.
+        * The image is stored in the /assets/images/meals directory and the path to the image 
+        * in the database table of meals. 
+        */
+       createWithImageStep2: async function (req, res) {
+         sails.log("Upload image for product...")
+         // Define the parameters of the upload as an object
+         // In this example only the path, wehre to upload the image, is set
+         let params = {
+           dirname: require('path').resolve(sails.config.appPath, 'assets/images/products/')
+         };
+     
+         let callback = async function (err, uploadedFiles) {
+           if (err) {
+             return res.serverError(err);
+           } else {
+             sails.log("Uploaded!")
+           }
+           let fname = require('path').basename(uploadedFiles[0].fd);
+           await Product.create({
+             "image": fname,
+             "name": req.session.name,
+             "category": req.session.category,
+             "description": req.session.description,
+             "price": req.session.price
+           })
+         };
+     
+           // This funvtion is called, once all files are uploaded
+           // err indicates if the upload process triggered an error and has been aborted 
+           // uploaded files contains an array of the files which have been uploaded, in our case only one.
+           await req.file('image').upload(params, callback);
+           return res.redirect('/product/product');
+         },
+     
 };
 

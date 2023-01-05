@@ -59,5 +59,12 @@ module.exports = {
         res.view('pages/order/step2');
     },
 
+    find: async function (req, res) {
+        sails.log.debug("List all orders")
+        let orders = await Order.find()
+        res.view('pages/order/orders', { orders: orders}); 
+    },
+
+
 };
 
