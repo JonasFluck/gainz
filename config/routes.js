@@ -106,7 +106,7 @@ module.exports.routes = {
   'GET /order/basket': {controller:'BasketController', action:'show'},
   'GET /order/basket/put/:id': {controller:'BasketController', action:'put'},
   'GET /order/basket/remove/:id': {controller:'BasketController', action:'remove'},
-  'GET /order/orders': {controller:'OrderController', action:'find'},
+  'GET /order/orders': {controller:'OrderController', action:'findUserOrders'},
 
   //Bestellung
   'GET /order/step1': {controller:'OrderController', action:'showFirstPage'},

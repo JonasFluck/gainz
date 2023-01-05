@@ -39,6 +39,9 @@ module.exports = {
   products: {
       collection: 'product',
       via: 'orders'
+  },
+  customer: {
+    model: 'user'
   }
 
   }
