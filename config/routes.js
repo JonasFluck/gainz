@@ -113,4 +113,11 @@ module.exports.routes = {
   'POST /order/step2':{controller:'OrderController', action:'order'},
   'GET /order/step2':{controller:'OrderController', action:'showSecondPage'},
 
+  //Kategorien
+  'GET /category/show': {action:'list-categories',locals:{layout:'admin-layout'}},
+  'POST /category/new':{action:'create-category'},
+  'GET /category/destroy/:id':{action:'destroy-category'},
+  'GET /category/edit/:id':{action:'edit-category'},
+  'POST /category/update/:id':{action:'update-category'},
+
 };

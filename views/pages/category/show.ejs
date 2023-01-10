@@ -1,0 +1,103 @@
+<%- exposeLocalsToBrowser() %>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="show">
+            <section class="hero is-primary has-text-centered">
+                <div class="hero-body">
+                    <p class="title">
+                        Categories
+                    </p>
+                </div>
+            </section>
+
+            <div class='container'>
+                <div class='columns is-full'>
+                    <div class='column is-full'>
+                        <div class="table-container">
+                            <table class="table is-striped mx-auto is-fullwidth">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                        <th></th>
+                                        <th>
+                        </div>
+                        <div class="is-variable">
+                            <button class="button is-primary card-footer-item" id="newCategoryButton">
+                                Neue Kategorie anlegen
+                            </button>
+                        </div>
+                        </th>
+                        <th>
+                            <div class="is-variable">
+                                <button class="button is-primary card-footer-item" id="searchCategoryButton">
+                                    Kategorie suchen
+                                </button>
+                            </div>
+                        </th>
+                    </div>
+                    </tr>
+                    </thead>
+                    <tbody v-for="category in categories">
+                            <tr>
+                                <td>
+                                    {{category.id}}
+                                </td>
+                                <td>
+                                    {{category.name}}
+                                </td>
+                                <td>
+                                    {{category.description}}
+                                </td>
+                                <td>
+                                    <a :href="'/category/edit/'+category.id" class="button is-warning">Edit</a>
+                                </td>
+                                <td>
+                                    <a :href="'/category/destroy/'+category.id"
+                                        class="button is-danger">Delete</a>
+                                </td>
+                            </tr>
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-content has-background-white py-5 px-5">
+                    <h3 class="title mb-6">Neues Produkt anlegen</h3>
+                    <form action="/category/new" method="post" id="newCategoryForm">
+                        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                        <div class="field">
+                            <label for="" class="label">Name</label>
+                            <div class="control">
+                                <input type="text" class="input" placeholder="Name" name="name" maxlength="80" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="" class="label">Description</label>
+                            <div class="control">
+                                <input type="text" class="input" placeholder="Description" name="description"
+                                    maxlength="40" required>
+                            </div>
+                        </div>
+                        <div class="mt-6 has-text-centered">
+                            <button class="button is-primary" type="submit">Erstellen</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    </html>
