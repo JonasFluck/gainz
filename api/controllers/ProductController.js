@@ -65,14 +65,16 @@ module.exports = {
         
     search: async function (req, res) {
         sails.log.debug(`Suche nach ${req.query.search}`);
+        let categories = await Category.find();
         let searchedProducts = await Product.find({
+          
             or: [
                 { name: { contains: req.query.search } },
             ]
         });
         if (searchedProducts.length === 0) { searchedProducts = await Product.find(); }
 
-        return res.view('pages/product/product', { products: searchedProducts, layout:'admin-layout' });
+        return res.view('pages/product/product', { products: searchedProducts,categories: categories, layout:'admin-layout' });
 
     },
 
