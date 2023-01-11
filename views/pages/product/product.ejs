@@ -50,36 +50,38 @@
                     </div>
                     </tr>
                     </thead>
-                    <tbody>
-                        <% products.forEach(function(product){ %>
+                    <tbody v-for="product in products">
+                        
                             <tr>
                                 <td>
-                                    <%= product.id %>
+                                    {{product.id}}
                                 </td>
                                 <td>
-                                    <%= product.name %>
+                                    {{product.name}}
                                 </td>
                                 <td>
-                                    <%= product.description %>
+                                    {{product.description}}
+                                </td>
+                                <template v-for="category in categories">
+                                    <td v-if="category.id === product.category">
+                                        {{category.name}}
+                                    </td>
+                                </template>
+                                <td>
+                                    {{product.price}}
                                 </td>
                                 <td>
-                                    <%= product.category %>
+                                    <a :href="'/product/productInfo/'+product.id" class="button is-info">Show</a>
                                 </td>
                                 <td>
-                                    <%= product.price %>
+                                    <a :href="'/product/product/edit/'+product.id" class="button is-warning">Edit</a>
                                 </td>
                                 <td>
-                                    <a href="/product/productInfo/<%= product.id %>" class="button is-info">Show</a>
-                                </td>
-                                <td>
-                                    <a href="/product/product/edit/<%= product.id %>" class="button is-warning">Edit</a>
-                                </td>
-                                <td>
-                                    <a href="/product/product/destroy/<%= product.id %>"
+                                    <a :href="'/product/product/destroy/'+product.id"
                                         class="button is-danger">Delete</a>
                                 </td>
                             </tr>
-                            <% }); %>
+                            
                     </tbody>
                     </table>
                 </div>
@@ -126,9 +128,9 @@
                             <div class="control">
                                 <div class="select is-primary">
                                     <select name="category">
-                                        <option value="1">Supplemment</option>
-                                        <option value="2">Clothing</option>
-                                        <option value="3">Others</option>
+                                        <option v-for="category in categories" v-bind:value="category.id">
+                                            {{category.name}}
+                                        </option>
                                     </select>
                                 </div>
                             </div>

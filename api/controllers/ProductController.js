@@ -28,7 +28,8 @@ module.exports = {
     find: async function (req, res) {
         sails.log.debug("List all products")
         let products = await Product.find()
-        res.view('pages/product/product', { products: products, layout: 'admin-layout' }); 
+        let categories = await Category.find();
+        res.view('pages/product/product', { products: products,categories: categories, layout: 'admin-layout' }); 
     },
 
     findTop: async function (req, res){
@@ -46,7 +47,8 @@ module.exports = {
     edit: async function (req, res) {
         sails.log.debug("Edit single product....")
         let product = await Product.findOne({id: req.params.id });
-        res.view('pages/product/productUpdate', {product:product});
+        let categories = await Category.find();
+        res.view('pages/product/productUpdate', {product:product,categories: categories});
     },
         
     showInfo: async function (req, res) {
@@ -63,14 +65,16 @@ module.exports = {
         
     search: async function (req, res) {
         sails.log.debug(`Suche nach ${req.query.search}`);
+        let categories = await Category.find();
         let searchedProducts = await Product.find({
+          
             or: [
                 { name: { contains: req.query.search } },
             ]
         });
         if (searchedProducts.length === 0) { searchedProducts = await Product.find(); }
 
-        return res.view('pages/product/product', { products: searchedProducts, layout:'admin-layout' });
+        return res.view('pages/product/product', { products: searchedProducts,categories: categories, layout:'admin-layout' });
 
     },
 
