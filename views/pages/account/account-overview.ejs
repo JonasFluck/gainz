@@ -1,15 +1,21 @@
 <div id="account-overview" v-cloak>
   <account-notification-banner></account-notification-banner>
   <div class="container pt-5 pb-5">
-    <h1>My account</h1>
+    <section class="hero is-primary has-text-centered">
+      <div class="hero-body">
+          <p class="title">
+              Dein Account
+          </p>
+      </div>
+  </section>
     <hr/>
     <div class="row mb-3">
       <div class="col-sm-6">
-        <h4>Personal information</h4>
+        <h4>deine Daten</h4>
       </div>
       <div class="col-sm-6">
         <span class="float-sm-right">
-          <a style="width: 150px" class="btn btn-sm btn-outline-info" href="/account/profile">Edit profile</a>
+          <a style="width: 150px" class="btn btn-sm btn-outline-info" href="/account/profile">Bearbeiten</a>
         </span>
       </div>
     </div>
@@ -27,17 +33,25 @@
     <hr/>
     <div class="row mb-3">
       <div class="col-sm-6">
-        <h4>Password</h4>
+        <h4>Passwort</h4>
       </div>
       <div class="col-sm-6">
         <span class="float-sm-right">
-          <a style="width: 150px" class="btn btn-sm btn-outline-info" href="/account/password">Change password</a>
+          <a style="width: 150px" class="btn btn-sm btn-outline-info" href="/account/password">Passwort ändern</a>
         </span>
       </div>
     </div>
     <div class="row">
       <div class="col-3">Password:</div>
       <div class="col"><strong>••••••••••</strong></div>
+    </div>
+    <hr/>
+    <div class="row justify-content-center">
+      <a href="/order/orders" class="button is-primary is">Zu deinen Bestellungen</a>
+    </div>
+    <hr/>
+    <div class="row justify-content-center">
+     <a href="/logout" class="button is-primary is">Logout</a>
     </div>
     <hr/>
     <div class="row mb-3" v-if="isBillingEnabled">
@@ -50,6 +64,7 @@
         </span>
       </div>
     </div>
+   
     <div v-if="isBillingEnabled && me.hasBillingCard">
       <div class="row">
         <div class="col-3">Credit card:</div>
