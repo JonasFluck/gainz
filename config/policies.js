@@ -13,21 +13,34 @@ module.exports.policies = {
   '*': 'is-logged-in',
 
   ProductController: {
-    '*': 'is-logged-in',
+    'find' : 'is-super-admin',
+    'findTop' : true,
     'showInfo' : true,
+    'search' : 'is-super-admin',
+    'create' : 'is-super-admin',
+    'destroy' : 'is-super-admin',
+    'edit' : 'is-super-admin',
+    'createWithImageStep1' : 'is-super-admin',
+    'createWithImageStep2' : 'is-super-admin',
+
     },
     BasketController: {
-      '*': 'is-logged-in',
-      'show' : true,
-      'put' : true,
-      'remove' : true,
+      '*': true,
+ 
       },
       OrderController: {
-        '*': 'is-logged-in',
-        'showFirstPage' : true,
-        'order' : true,
-        'showSecondPage' : true,
+    '*': true,
+
         },
+
+        
+' create-category': 'is-super-admin',
+'destroy-category': 'is-super-admin',
+'edit-category':  'is-super-admin',
+'update-category' : 'is-super-admin',
+'list-category':{
+    '*' : true
+    },
   // Bypass the `is-logged-in` policy for:
   'entrance/*': true,
   'account/logout': true,
@@ -37,6 +50,8 @@ module.exports.policies = {
   'legal/view-terms': true,
   'legal/view-privacy': true,
   'deliver-contact-form-message': true,
+
+
 
 
 };

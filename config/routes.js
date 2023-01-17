@@ -84,7 +84,7 @@ module.exports.routes = {
 
   //admin views
   'GET /product/product':{controller:'ProductController', action:'find'},
-  'GET /admin':{view: 'pages/admin/admin', locals:{layout:'admin-layout'}},
+  'GET /admin':{action:'accessadmin',locals:{layout:'admin-layout'}},
 
  
   'GET /ernaehrungsformen/ernaehrungsformen':{view: 'pages/ernaehrungsformen/ernaehrungsformen'},
