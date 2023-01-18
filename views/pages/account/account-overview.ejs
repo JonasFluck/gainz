@@ -50,6 +50,13 @@
       <a href="/order/orders" class="button is-primary is">Zu deinen Bestellungen</a>
     </div>
     <hr/>
+    <% if(req.me.isSuperAdmin) { %>
+      <div class="row justify-content-center">
+        <a href="/admin" class="button is-primary is">Admin-Panel</a>
+       </div>
+       <hr/>
+    <% } else { %> 
+    <% } %>
     <div class="row justify-content-center">
      <a href="/logout" class="button is-primary is">Logout</a>
     </div>
@@ -122,3 +129,6 @@
   </modal>
 </div>
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
+
+
+
