@@ -109,6 +109,7 @@ module.exports = {
            dirname: require('path').resolve(sails.config.appPath, 'assets/images/products/')
          };
      
+         sails.log.debug(params.dirname);
          let callback = async function (err, uploadedFiles) {
            if (err) {
              return res.serverError(err);
