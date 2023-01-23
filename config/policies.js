@@ -50,6 +50,8 @@ module.exports.policies = {
   'legal/view-terms': true,
   'legal/view-privacy': true,
   'deliver-contact-form-message': true,
+  'ausdauer-product' : true,
+  'nutrition-product' : true
 
 
 

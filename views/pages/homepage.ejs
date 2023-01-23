@@ -9,161 +9,216 @@
 </head>
 
 <body>
-<div id="homepage">
-  <!--Navbar-->
-  <nav class="bd-navbar navbar has-background-primary py-3 is-hidden-touch  " role="navigation"
-    aria-label="main navigation" style="max-height: none;">
-    <div id="navbarItems" class="navbar-menu">
-      <div class="navbar-center">
-        <a class="navbar-item has-text-white has-background-primary" href="/nutrition/nutrition">
-          <p class="is-size-3">Nutrition</p>
-        </a>
-        <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary" >
-          <p class="is-size-3 fix">Fitnessziele</p>
-  
-          <div class="navbar-dropdown">
-            <a class="navbar-item is-size-4" href="/fitnessziele/abnehmen">
-              Abnehmen
-            </a>
-            <a class="navbar-item is-size-4" href="/fitnessziele/muskelaufbau">
-              Muskelaufbau
-            </a>
-            <a class="navbar-item is-size-4" href="/fitnessziele/ausdauer">
-              Ausdauer
-            </a>
-          </div>
-        </div>
-        <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary">
-          <p class="is-size-3 fix">Ernährungsformen</p>
-  
-          <div class="navbar-dropdown"> 
-            <a class="navbar-item is-size-4"  href="/ernaehrungsformen/vegan">
-              Vegan
-            </a>
-            <a class="navbar-item is-size-4" href="/ernaehrungsformen/vegetarisch">
-              Vegetarisch
-            </a>
-            <a class="navbar-item is-size-4" href="/ernaehrungsformen/pesketarisch">
-              Pesketarisch
-            </a>
-          </div>
-        </div>
-        <a class="navbar-item has-text-white has-background-primary" href="/kleidung/kleidung">
-          <p class="is-size-3">Kleidung</p>
-        </a>
-      </div>
-    </div>
-  </nav>
+  <div id="homepage">
+    <!--Navbar-->
+    <nav class="bd-navbar navbar has-background-primary py-3 is-hidden-touch  " role="navigation"
+      aria-label="main navigation" style="max-height: none;">
+      <div id="navbarItems" class="navbar-menu">
+        <div class="navbar-center">
+          <a class="navbar-item has-text-white has-background-primary" href="/nutrition/nutrition">
+            <p class="is-size-3">Nutrition</p>
+          </a>
+          <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary">
+            <p class="is-size-3 fix">Fitnessziele</p>
 
-  
+            <div class="navbar-dropdown">
+              <a class="navbar-item is-size-4" href="/fitnessziele/abnehmen">
+                Abnehmen
+              </a>
+              <a class="navbar-item is-size-4" href="/fitnessziele/muskelaufbau">
+                Muskelaufbau
+              </a>
+              <a class="navbar-item is-size-4" href="/fitnessziele/ausdauer">
+                Ausdauer
+              </a>
+            </div>
+          </div>
+          <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary">
+            <p class="is-size-3 fix">Ernährungsformen</p>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item is-size-4" href="/ernaehrungsformen/vegan">
+                Vegan
+              </a>
+              <a class="navbar-item is-size-4" href="/ernaehrungsformen/vegetarisch">
+                Vegetarisch
+              </a>
+              <a class="navbar-item is-size-4" href="/ernaehrungsformen/pesketarisch">
+                Pesketarisch
+              </a>
+            </div>
+          </div>
+          <a class="navbar-item has-text-white has-background-primary" href="/kleidung/kleidung">
+            <p class="is-size-3">Kleidung</p>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+
+    <section class="section">
+      <div class="container">
+        <div class="columns is-multiline is-centered">
+          <div class="column is-8 has-text-centered">
+            <h2 class="mt-2 mb-2 is-size-1 is-size-3-mobile has-text-weight-bold">GAINZ over everything</h2>
+            <p class="subtitle has-text-grey mb-2">Gainz.com ist ein Onlineshop für Supplements und Bekleidung rund um
+              das
+              Thema Sport und Ernährung.
+              Sowohl für den professionellen Bodybuilder, den regelmäßigen Gymgänger, als auch für den blutigen Anfänger
+              bieten wir die passenden Produkte an.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Bestseller-->
+    <section class="section">
+      <div class="container">
+        <h3 class="title has-text-centered is-size-4">Unsere Bestseller</h3>
+        <div class="columns mt-5 is-8 is-variable">
+          <div class="column is-4-tablet is-3-desktop" v-for="product in products">
+            <product :product="product" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="columns is-multiline is-centered">
+          <div class="column is-8 has-text-centered">
+            <h2 class="mt-2 mb-2 is-size-1 is-size-3-mobile has-text-weight-bold">Unsere Vision</h2>
+            <p class="subtitle has-text-grey mb-2">Willkommen bei GAINZ - dem ultimativen Onlineshop für alle, die ihre
+              Fitness auf die nächste Stufe bringen wollen. Auf
+              Gainz.com finden Sie alles, was Sie für Ihre Workouts und Ernährung benötigen - von hochwertigen
+              Supplements bis hin zu
+              stylisher Sportbekleidung.
+
+              Unser Sortiment ist speziell auf die Bedürfnisse von Profi-Bodybuildern, regelmäßigen Gymgängern und
+              Fitness-Einsteigern
+              abgestimmt. Wir bieten Ihnen die besten Produkte auf dem Markt, damit Sie Ihre Ziele schneller und
+              effektiver erreichen
+              können.
+              <br>
+              Gainz steht für alles, was Fitness bedeutet - harte Arbeit, Disziplin und Determination. Lassen Sie uns
+              gemeinsam dafür
+              sorgen, dass Ihr nächstes Workout noch besser wird als das letzte. Besuchen Sie uns jetzt auf Gainz.com
+              und shoppen Sie
+              die neuesten Trends und Must-haves für Ihre Fitness-Reise.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Neuerscheinungen-->
+    <section class="section">
+      <div class="container">
+        <h3 class="title has-text-centered is-size-4">Unsere Neuerscheinungen</h3>
+        <div class="columns mt-5 is-8 is-variable">
+          <div class="column is-4-tablet is-3-desktop">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-square">
+                  <img src="images/products/protein.jpg" alt="product">
+                </figure>
+              </div>
+              <div class="card-content ">
+                <p class="title is-size-5">Gainz Super Whey</p>
+                <p>12,00€</p>
+              </div>
+              <footer class="card-footer">
+                <p class="card-footer-item">
+                  <a href="" class="has-text-grey">Zum Produkt</a>
+                </p>
+              </footer>
+            </div>
+          </div>
+          <div class="column is-4-tablet is-3-desktop">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-square">
+                  <img src="images/products/protein-gummies.jpg" alt="product">
+                </figure>
+              </div>
+              <div class="card-content ">
+                <p class="title is-size-5">Gainz Vitamin Gumz</p>
+                <p>15,00€</p>
+              </div>
+              <footer class="card-footer">
+                <p class="card-footer-item">
+                  <a href="" class="has-text-grey">Zum Produkt</a>
+                </p>
+              </footer>
+            </div>
+          </div>
+          <div class="column is-4-tablet is-3-desktop">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-square">
+                  <img src="images/products/gym-tank.jpg" alt="product">
+                </figure>
+              </div>
+              <div class="card-content ">
+                <p class="title is-size-5">Gainz Tankz</p>
+                <p>20,00€</p>
+              </div>
+              <footer class="card-footer">
+                <p class="card-footer-item">
+                  <a href="" class="has-text-grey">Zum Produkt</a>
+                </p>
+              </footer>
+            </div>
+          </div>
+          <div class="column is-4-tablet is-3-desktop">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-square">
+                  <img src="images/products/supps.jpg" alt="product">
+                </figure>
+              </div>
+              <div class="card-content ">
+                <p class="title is-size-5">Gainz Kreatin Pillz</p>
+                <p>10,00€</p>
+              </div>
+              <footer class="card-footer">
+                <p class="card-footer-item">
+                  <a href="" class="has-text-grey">Zum Produkt</a>
+                </p>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
   <section class="section">
     <div class="container">
       <div class="columns is-multiline is-centered">
         <div class="column is-8 has-text-centered">
-          <h2 class="mt-2 mb-2 is-size-1 is-size-3-mobile has-text-weight-bold">GAINZ over everything</h2>
-          <p class="subtitle has-text-grey mb-2">Gainz.com ist ein Onlineshop für Supplements und Bekleidung rund um das
-            Thema Sport und Ernährung.
-            Sowohl für den professionellen Bodybuilder, den regelmäßigen Gymgänger, als auch für den blutigen Anfänger
-            bieten wir die passenden Produkte an.
+          <h2 class="mt-2 mb-2 is-size-1 is-size-3-mobile has-text-weight-bold">die Community</h2>
+          <p class="subtitle has-text-grey mb-2">Auf Gainz.com finden Sie nicht nur die besten Produkte für Ihre
+            Fitness-Reise, sondern auch informative und inspirierende
+            Inhalte rund um das Thema Sport und Ernährung. Unsere Blog-Beiträge werden von erfahrenen Experten
+            geschrieben und
+            bieten Ihnen wertvolle Tipps und Tricks, um Ihre Ziele zu erreichen.
+
+            Wir sind stolz darauf, eine Community von engagierten und motivierten Fitness-Enthusiasten zu sein und
+            freuen uns
+            darauf, Sie auf Ihrem Weg zu unterstützen. Folgen Sie uns auf sozialen Medien, um immer auf dem Laufenden zu
+            bleiben und
+            inspirierende Inhalte zu erhalten.
+
+            Wir bedanken uns für Ihren Besuch auf Gainz.com und freuen uns darauf, Ihnen bei der Erreichung Ihrer
+            Fitness-Ziele zu
+            helfen. Wenn Sie Fragen oder Anregungen haben, zögern Sie bitte nicht uns zu kontaktieren, wir sind immer
+            bereit zu
+            helfen. 
         </div>
       </div>
     </div>
   </section>
 
-  <!--Bestseller-->
-  <section class="section">
-    <div class="container">
-      <h3 class="title has-text-centered is-size-4">Unsere Bestseller</h3>
-      <div class="columns mt-5 is-8 is-variable">
-          <div class="column is-4-tablet is-3-desktop" v-for="product in products">
-              <product :product="product"/>
-          </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Neuerscheinungen-->
-  <section class="section">
-    <div class="container">
-      <h3 class="title has-text-centered is-size-4">Unsere Neuerscheinungen</h3>
-      <div class="columns mt-5 is-8 is-variable">
-        <div class="column is-4-tablet is-3-desktop">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-square">
-                <img src="images/products/protein.jpg" alt="product">
-              </figure>
-            </div>
-            <div class="card-content ">
-              <p class="title is-size-5">Gainz Super Whey</p>
-              <p>12,00€</p>
-            </div>
-            <footer class="card-footer">
-              <p class="card-footer-item">
-                <a href="" class="has-text-grey">Zum Produkt</a>
-              </p>
-            </footer>
-          </div>
-        </div>
-        <div class="column is-4-tablet is-3-desktop">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-square">
-                <img src="images/products/protein-gummies.jpg" alt="product">
-              </figure>
-            </div>
-            <div class="card-content ">
-              <p class="title is-size-5">Gainz Vitamin Gumz</p>
-              <p>15,00€</p>
-            </div>
-            <footer class="card-footer">
-              <p class="card-footer-item">
-                <a href="" class="has-text-grey">Zum Produkt</a>
-              </p>
-            </footer>
-          </div>
-        </div>
-        <div class="column is-4-tablet is-3-desktop">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-square">
-                <img src="images/products/gym-tank.jpg" alt="product">
-              </figure>
-            </div>
-            <div class="card-content ">
-              <p class="title is-size-5">Gainz Tankz</p>
-              <p>20,00€</p>
-            </div>
-            <footer class="card-footer">
-              <p class="card-footer-item">
-                <a href="" class="has-text-grey">Zum Produkt</a>
-              </p>
-            </footer>
-          </div>
-        </div>
-        <div class="column is-4-tablet is-3-desktop">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-square">
-                <img src="images/products/supps.jpg" alt="product">
-              </figure>
-            </div>
-            <div class="card-content ">
-              <p class="title is-size-5">Gainz Kreatin Pillz</p>
-              <p>10,00€</p>
-            </div>
-            <footer class="card-footer">
-              <p class="card-footer-item">
-                <a href="" class="has-text-grey">Zum Produkt</a>
-              </p>
-            </footer>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
+  <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
 </body>
 
 </html>
