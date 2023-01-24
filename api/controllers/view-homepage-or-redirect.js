@@ -26,15 +26,8 @@ module.exports = {
 
   fn: async function () {
 
-    let products = await Product.find({limit: 4} );
-    /*
-    if (this.req.me) {
-      throw {redirect:'/'};
-    }*/
-
-
+    let products = await Product.find({ where: { isActive: true }, limit: 4 });
     return {products};
-
   }
 
 

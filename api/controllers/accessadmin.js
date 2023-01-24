@@ -22,10 +22,22 @@ module.exports = {
 
 
   fn: async function (inputs) {
+    sails.log.debug("Starting up admin-page")
 
-    // All done.
-    return;
+    let products = await Product.find({isActive:true});
+    amountOfProducts = products.length
 
+    let users = await User.find();
+    amountOfUsers = users.length
+
+
+    let orders = await Order.find();
+    amountOfOrders = orders.length
+
+    let categories = await Category.find();
+    amountOfCategories = categories.length
+
+    return {amountOfProducts, amountOfUsers, amountOfOrders, amountOfCategories};
   }
 
 

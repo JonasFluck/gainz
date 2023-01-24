@@ -29,8 +29,7 @@ module.exports = {
 
 
   fn: async function (inputs) {
-    let products = await Product.find({limit: 4} );
-    console.log("Hallo");
+    let products = await Product.find({ where: { isActive: true }, limit: 4 });
     return {products};
 
   }

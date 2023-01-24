@@ -29,75 +29,90 @@
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Description</th>
-                                        <th></th>
+                                        <th>Active</th>
                                         <th>
+                                            <div class="is-variable">
+                                                <button class="button is-primary card-footer-item" id="newCategoryButton">
+                                                    Neue Kategorie anlegen
+                                                </button>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="is-variable">
+                                                <button class="button is-primary card-footer-item" id="searchCategoryButton">
+                                                    Kategorie suchen
+                                                </button>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody v-for="category in categories">
+                                    <tr v-bind:class="category.isActive?'':'has-background-white-ter has-text-grey-light'">
+                                        <td>
+                                            {{category.id}}
+                                        </td>
+                                        <td>
+                                            {{category.name}}
+                                        </td>
+                                        <td>
+                                            {{category.description}}
+                                        </td>
+                                        <td>
+                                            {{category.isActive}}
+                                        </td>
+                                        <td>
+                                            <a :href="'/category/edit/'+category.id" class="button is-warning"
+                                                v-if="category.isActive">Edit</a>
+                                        </td>
+                                        <td>
+                                            <button v-on:click="openDeleteModal(category.id)" class="button is-danger"
+                                                v-if="category.isActive">Delete</button>
+                                                <a :href="'/category/reactivate/'+category.id" class="button is-primary"
+                                                v-else>Aktivieren</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="is-variable">
-                            <button class="button is-primary card-footer-item" id="newCategoryButton">
-                                Neue Kategorie anlegen
-                            </button>
-                        </div>
-                        </th>
-                        <th>
-                            <div class="is-variable">
-                                <button class="button is-primary card-footer-item" id="searchCategoryButton">
-                                    Kategorie suchen
-                                </button>
-                            </div>
-                        </th>
                     </div>
-                    </tr>
-                    </thead>
-                    <tbody v-for="category in categories">
-                            <tr>
-                                <td>
-                                    {{category.id}}
-                                </td>
-                                <td>
-                                    {{category.name}}
-                                </td>
-                                <td>
-                                    {{category.description}}
-                                </td>
-                                <td>
-                                    <a :href="'/category/edit/'+category.id" class="button is-warning">Edit</a>
-                                </td>
-                                <td>
-                                    <a :href="'/category/destroy/'+category.id"
-                                        class="button is-danger">Delete</a>
-                                </td>
-                            </tr>
-                    </tbody>
-                    </table>
+                <div class="modal">
+                    <div class="modal-background"></div>
+                    <div class="modal-content has-background-white py-5 px-5">
+                        <h3 class="title mb-6">Neue Kategorie anlegen</h3>
+                        <form action="/category/new" method="post" id="newCategoryForm">
+                            <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                            <div class="field">
+                                <label for="" class="label">Name</label>
+                                <div class="control">
+                                    <input type="text" class="input" placeholder="Name" name="name" maxlength="80" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="" class="label">Description</label>
+                                <div class="control">
+                                    <input type="text" class="input" placeholder="Description" name="description"
+                                        maxlength="40" required>
+                                </div>
+                            </div>
+                            <div class="mt-6 has-text-centered">
+                                <button class="button is-primary" type="submit">Erstellen</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal" id="modalDestroy">
+                    <div class="modal-background"></div>
+                    <div class="modal-content has-background-white py-5 px-5">
+                        <h3 class="title mb-6">Kategorie deaktivieren</h3>
+                        <form :action="'/category/destroy/'+idOfDeleteCategory" method="get">
+                            <p>Wenn sie fortfahren werden alle Produkte die diese verwenden ebenfalls deaktiviert!</p>
+                            <div class="mt-6 has-text-centered">
+                                <button class="button is-warning" type="button" v-on:click="closeDeleteModal()">Abbrechen</button>
+                                <button class="button is-danger" type="submit">Deaktivieren</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-
-            <div class="modal">
-                <div class="modal-background"></div>
-                <div class="modal-content has-background-white py-5 px-5">
-                    <h3 class="title mb-6">Neue Kategorie anlegen</h3>
-                    <form action="/category/new" method="post" id="newCategoryForm">
-                        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
-                        <div class="field">
-                            <label for="" class="label">Name</label>
-                            <div class="control">
-                                <input type="text" class="input" placeholder="Name" name="name" maxlength="80" required>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label for="" class="label">Description</label>
-                            <div class="control">
-                                <input type="text" class="input" placeholder="Description" name="description"
-                                    maxlength="40" required>
-                            </div>
-                        </div>
-                        <div class="mt-6 has-text-centered">
-                            <button class="button is-primary" type="submit">Erstellen</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </body>
-
+        </body>
     </html>

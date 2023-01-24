@@ -40,7 +40,7 @@ module.exports = {
 
     destroy: async function (req, res) {
         sails.log.debug("Destroy single product....")
-        await Product.destroyOne({ id: req.params.id });
+        await Product.updateOne({ id: req.params.id }).set({isActive:false});
         res.redirect('/product/product');
     },
 
