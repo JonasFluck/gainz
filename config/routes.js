@@ -77,7 +77,7 @@ module.exports.routes = {
   'GET /product/product/search': { controller: 'ProductController', action: 'search' },
   'POST /product/newImage': { controller: 'ProductController', action: 'createWithImageStep1' },
   'POST /newWithImage/': { controller: 'ProductController', action: 'createWithImageStep2' },
-
+  'GET /product/reactivate/:id': { action: 'reactivate-product' },
 
 
   'GET /product/product:id': 'product.findOne',
@@ -118,5 +118,6 @@ module.exports.routes = {
   'GET /category/destroy/:id': { action: 'destroy-category' },
   'GET /category/edit/:id': { action: 'edit-category' },
   'POST /category/update/:id': { action: 'update-category' },
+  'GET /category/reactivate/:id': { action: 'reactivate-category' },
 
 };

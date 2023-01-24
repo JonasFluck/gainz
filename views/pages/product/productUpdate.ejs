@@ -53,7 +53,7 @@
                             <div class="control">
                                 <div class="select is-primary">
                                     <select name="category">
-                                        <option v-for="category in categories" v-bind:value="category.id">
+                                        <option v-for="category in categories" v-if="category.isActive" v-bind:value="category.id">
                                             {{category.name}}
                                         </option>
                                     </select>

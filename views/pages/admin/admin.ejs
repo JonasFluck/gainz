@@ -1,147 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- exposeLocalsToBrowser() %>
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
 
-<body>
-    <section class="hero is-primary">
-        <div class="hero-body">
-            <p class="title">
-                Hello admin
-            </p>
-            <p class="subtitle">
-                Hope you are having a great time !
-            </p>
-        </div>
-    </section>
-    <section class="info-tiles">
-        <div class="tile is-ancestor has-text-centered">
-            <div class="tile is-parent">
-                <article class="tile is-child box">
-                    <p class="title">439k</p>
-                    <p class="subtitle">Users</p>
-                </article>
-            </div>
-            <div class="tile is-parent">
-                <article class="tile is-child box">
-                    <p class="title">59k</p>
-                    <p class="subtitle">Products</p>
-                </article>
-            </div>
-            <div class="tile is-parent">
-                <article class="tile is-child box">
-                    <p class="title">3.4k</p>
-                    <p class="subtitle">Open Orders</p>
-                </article>
-            </div>
-            <div class="tile is-parent">
-                <article class="tile is-child box">
-                    <p class="title">19</p>
-                    <p class="subtitle">Exceptions</p>
-                </article>
-            </div>
-        </div>
-    </section>
-    <div class="columns">
-        
-         <!--
-        <div class="column is-6">
-            <div class="card">
-                <header class="card-header">
-                    <p class="card-header-title">
-                        User Search
+    <body>
+        <div id="admin">
+            <section class="hero is-primary">
+                <div class="hero-body">
+                    <p class="title">
+                        Hello admin
                     </p>
-                    <a href="#" class="card-header-icon" aria-label="more options">
-                        <span class="icon">
-                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                        </span>
-                    </a>
-                </header>
-                <div class="card-content">
-                    <div class="content">
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input is-large" type="text" placeholder="">
-                            <span class="icon is-medium is-left">
-                                <i class="fa fa-search"></i>
-                            </span>
-                            <span class="icon is-medium is-right">
-                                <i class="fa fa-check"></i>
-                            </span>
+                    <p class="subtitle">
+                        Hope you are having a great time !
+                    </p>
+                </div>
+            </section>
+            <section class="info-tiles">
+                <div class="tile is-ancestor has-text-centered">
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <p class="title">{{amountOfUsers}}</p>
+                            <p class="subtitle">Users</p>
+                        </article>
+                    </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <p class="title">{{amountOfProducts}}</p>
+                            <p class="subtitle">Products</p>
+                        </article>
+                    </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <p class="title">{{amountOfOrders}}</p>
+                            <p class="subtitle">Open Orders</p>
+                        </article>
+                    </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <p class="title">{{amountOfCategories}}</p>
+                            <p class="subtitle">Categories</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <!--Modals-->
+            <div class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-content has-background-white py-5 px-5">
+                    <h3 class="title mb-6">Neues Produkt anlegen</h3>
+                    <form action="/product/product" method="post">
+                        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                        <div class="field">
+                            <label class="label">Name</label>
+                            <div class="control">
+                                <input type="text" class="input" placeholder="Name" name="name">
+                            </div>
                         </div>
-                    </div>
+                        <div class="field">
+                            <label class="label">Price</label>
+                            <div class="control">
+                                <input type="number" class="input" step="any" placeholder="Price" name="price">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Description</label>
+                            <div class="control">
+                                <input type="text" class="input" placeholder="Description" name="description">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Category</label>
+                            <div class="control">
+                                <div class="select is-primary">
+                                    <select name="category">
+                                        <option value="1">Supplemment</option>
+                                        <option value="2">Clothing</option>
+                                        <option value="3">Others</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 has-text-centered">
+                            <button class="button is-primary" type="submit">Erstellen</button>
+                        </div>
+                    </form>
                 </div>
-            </div> -->
+            </div>
         </div>
+    </body>
 
-
-    <!--Modals-->
-    <div class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-content has-background-white py-5 px-5">
-            <h3 class="title mb-6">Neues Produkt anlegen</h3>
-            <form action="/product/product" method="post">
-                <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
-                <div class="field">
-                    <label class="label">Name</label>
-                    <div class="control">
-                        <input type="text" class="input" placeholder="Name" name="name">
-                    </div>
-                </div>
-                <div class="field">
-                    <label class="label">Price</label>
-                    <div class="control">
-                        <input type="number" class="input" step="any" placeholder="Price" name="price">
-                    </div>
-                </div>
-                <div class="field">
-                    <label class="label">Description</label>
-                    <div class="control">
-                        <input type="text" class="input" placeholder="Description" name="description">
-                    </div>
-                </div>
-                <div class="field">
-                    <label class="label">Category</label>
-                    <div class="control">
-                        <div class="select is-primary">
-                            <select name="category">
-                              <option value="1">Supplemment</option>
-                              <option value="2">Clothing</option>
-                              <option value="3">Others</option>
-                            </select>
-                          </div>
-                    </div>
-                </div>
-                <div class="mt-6 has-text-centered">
-                    <button class="button is-primary" type="submit">Erstellen</button>
-                </div>
-            </form>
-        </div>
-    </div>
-    <script>
-        //modal
-        const searchProductButton = document.querySelector('#searchProductButton');
-        const newProductButton = document.querySelector('#newProductButton');
-        const modalBg = document.querySelector('.modal-background');
-        const modal = document.querySelector('.modal');
-        const allProductButton = document.querySelector('#allProductButton');
-    
-        newProductButton.addEventListener('click',()=>{
-            modal.classList.add('is-active');
-        })
-    
-        modalBg.addEventListener('click',()=>{
-            modal.classList.remove('is-active');
-        })
-    
-        allProductButton.addEventListener('click',()=>{
-            location.href = "/product/product"
-        })
-    </script>
-</body>
-
-</html>
+    </html>

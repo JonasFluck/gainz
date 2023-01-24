@@ -14,7 +14,7 @@ module.exports = {
     }
   },
   fn: async function (inputs, exits) {
-    let products = await Product.find({ limit: 4 });
+    let products = await Product.find({ where: { isActive: true }, limit: 4 });
     if (!products) {
       return exits.notFound();
     }
