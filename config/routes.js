@@ -97,7 +97,7 @@ module.exports.routes = {
   'GET /fitnessziele/abnehmen': { view: 'pages/fitnessziele/abnehmen' },
   'GET /fitnessziele/ausdauer': { action: 'ausdauer-product' },
   'GET /fitnessziele/muskelaufbau': { view: 'pages/fitnessziele/muskelaufbau' },
-  'GET /kleidung/kleidung': { view: 'pages/kleidung/kleidung' },
+  'GET /kleidung/kleidung': { action: 'kleidung-product' },
   'GET /nutrition/nutrition': { action: 'nutrition-product' },
 
 
