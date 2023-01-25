@@ -38,7 +38,7 @@ default:{
     }
     },
     template:`  
-    <div class="card">
+    <div class="card my-card">
               <div class="card-image">
                 <figure class="image is-square">
                     <img :src="'/images/products/'+(product.image==='' ? 'protein.jpg' : product.image)">

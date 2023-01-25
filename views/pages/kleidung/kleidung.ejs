@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+
 <body>
-    <!--Navbar-->
-    <nav class="bd-navbar navbar has-background-primary py-3 is-hidden-touch  " role="navigation"
+  <!--Navbar-->
+  <nav class="bd-navbar navbar has-background-primary py-3 is-hidden-touch  " role="navigation"
     aria-label="main navigation" style="max-height: none;">
     <div id="navbarItems" class="navbar-menu">
       <div class="navbar-center">
         <a class="navbar-item has-text-white has-background-primary" href="/nutrition/nutrition">
           <p class="is-size-3">Nutrition</p>
         </a>
-        <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary" >
+        <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary">
           <p class="is-size-3 fix">Fitnessziele</p>
-  
+
           <div class="navbar-dropdown">
             <a class="navbar-item is-size-4" href="/fitnessziele/abnehmen">
               Abnehmen
@@ -32,9 +34,9 @@
         </div>
         <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary">
           <p class="is-size-3 fix">Ernährungsformen</p>
-  
-          <div class="navbar-dropdown"> 
-            <a class="navbar-item is-size-4"  href="/ernaehrungsformen/vegan">
+
+          <div class="navbar-dropdown">
+            <a class="navbar-item is-size-4" href="/ernaehrungsformen/vegan">
               Vegan
             </a>
             <a class="navbar-item is-size-4" href="/ernaehrungsformen/vegetarisch">
@@ -51,6 +53,162 @@
       </div>
     </div>
   </nav>
-    <h1>Kleidung</h1>
+
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-multiline is-centered">
+        <div class="column is-8 has-text-centered">
+          <h2 class="mt-2 mb-2 is-size-1 is-size-3-mobile has-text-weight-bold">die richtige Kleidung</h2>
+          <p class="subtitle has-text-grey mb-2">Die richtige Kleidung ist von entscheidender Bedeutung, wenn es darum
+            geht, sportlich aktiv zu sein. Es hilft dabei, die Leistung zu verbessern, Verletzungen zu vermeiden und
+            sich wohl zu fühlen.
+
+            Atmungsaktive und feuchtigkeitsableitende Materialien wie Polyester und Funktionsfasern helfen dabei,
+            Feuchtigkeit von der Haut fernzuhalten und die Körpertemperatur ausgeglichen zu halten. Dies ist besonders
+            wichtig bei körperlichen Aktivitäten, die längere Zeit andauern und starke Anstrengung erfordern.
+
+            Elastische und flexible Stoffe wie Elastan und Spandex ermöglichen eine gute Bewegungsfreiheit und
+            unterstützen die Muskeln bei ihrer Arbeit. Dies ist besonders wichtig für Sportarten, die eine große
+            Beweglichkeit erfordern, wie zum Beispiel Yoga oder Tanzen.
+
+            Es ist auch wichtig, dass die Kleidung die richtige Passform hat, um eine gute Bewegungsfreiheit zu
+            ermöglichen und Verletzungen zu vermeiden. Es sollte nicht zu eng oder zu locker sein.
+
+            Auf der anderen Seite, ist es wichtig auch die richtige Schuhwahl zu treffen und die richtige Größe zu
+            wählen, um Verletzungen im Bereich der Füße und der Beine zu vermeiden.
+
+            Abschließend, die richtige Kleidung für Sport ist ein wichtiger Faktor, um die Leistung zu verbessern,
+            Verletzungen zu vermeiden und sich wohl zu fühlen. Es ist wichtig, Materialien, Passform und Schuhwahl
+            sorgfältig auszuwählen, um das beste Ergebnis zu erzielen.
+        </div>
+      </div>
+    </div>
+  </section>-
+
+  <section class="section">
+    <div class="container">
+      <h3 class="title has-text-centered is-size-4">unsere Empfehlungen</h3>
+      <div class="columns mt-5 is-8 is-variable">
+        <% products.forEach(function(product){ %>
+          <div class="column is-4-tablet is-3-desktop">
+            <div class="card my-card">
+              <div class="card-image">
+                <figure class="image is-square">
+                  <img src="/images/products/protein.jpg" alt="product">
+                </figure>
+              </div>
+              <div class="card-content ">
+                <p class="title is-size-5">
+                  <%= product.name %>
+                </p>
+                <p>
+                  <%= product.price %>€
+                </p>
+              </div>
+              <footer class="card-footer">
+                <p class="card-footer-item">
+                  <a href="/product/productInfo/<%= product.id %>" class="has-text-grey is-primary">Zum Produkt</a>
+                </p>
+              </footer>
+            </div>
+          </div>
+          <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <div class="section">
+    <h2 class="mt-2 mb-2 is-size-1 is-size-3-mobile has-text-weight-bold has-text-centered">die besten Materialien</h2>
+    <div class="columns">
+      <div class="column">
+        <div class="card my-card">
+          <div class="card-content">
+            <h3 class="title is-4">Polyester</h3>
+            <p>Ein synthetisches Material, das atmungsaktiv, schnell trocknend und strapazierfähig ist. Es ist auch
+              leicht und pflegeleicht.</p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card my-card">
+          <div class="card-content">
+            <h3 class="title is-4">Nylon</h3>
+            <p>Ein weiteres synthetisches Material, das atmungsaktiv und strapazierfähig ist. Es hat eine gute
+              Feuchtigkeitsableitung und ist leicht und pflegeleicht.</p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card my-card">
+          <div class="card-content">
+            <h3 class="title is-4">Elastan/Spandex</h3>
+            <p>Diese Materialien sind sehr elastisch und ermöglichen eine gute Bewegungsfreiheit. Sie sind auch sehr
+              atmungsaktiv und pflegeleicht.</p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card my-card">
+          <div class="card-content">
+            <h3 class="title is-4">Merinowolle</h3>
+            <p>Dieses natürliche Material ist atmungsaktiv, feuchtigkeitsableitend und wärmeregulierend. Es ist auch
+              geruchshemmend und pflegeleicht.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="section">
+    <div class="container">
+      <table class="table is-bordered is-striped">
+        <h2 class="mt-2 mb-2 is-size-1 is-size-3-mobile has-text-weight-bold has-text-centered">Größentabelle</h2>
+        <thead>
+          <tr>
+            <th>Größe</th>
+            <th>Brustumfang (in cm)</th>
+            <th>Taille (in cm)</th>
+            <th>Hüftumfang (in cm)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>XS</td>
+            <td>81-84</td>
+            <td>61-64</td>
+            <td>89-92</td>
+          </tr>
+          <tr>
+            <td>S</td>
+            <td>86-89</td>
+            <td>66-69</td>
+            <td>94-97</td>
+          </tr>
+          <tr>
+            <td>M</td>
+            <td>91-94</td>
+            <td>71-74</td>
+            <td>99-102</td>
+          </tr>
+          <tr>
+            <td>L</td>
+            <td>97-100</td>
+            <td>77-80</td>
+            <td>104-109</td>
+          </tr>
+          <tr>
+            <td>XL</td>
+            <td>104-109</td>
+            <td>84-89</td>
+            <td>112-117</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
 </body>
+
 </html>

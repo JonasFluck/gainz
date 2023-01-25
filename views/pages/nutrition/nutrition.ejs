@@ -106,36 +106,31 @@
 
     <section class="section">
         <div class="container">
-            <h3 class="title has-text-centered is-size-4">Nutrition Produkte</h3>
-            <div class="columns mt-5 is-8 is-variable">
-                <% products.forEach(function(product){ %>
-                    <div class="column is-4-tablet is-3-desktop">
-                        <div class="card">
-                            <div class="card-image">
-                                <figure class="image is-square">
-                                    <img src="/images/products/protein.jpg" alt="product">
-                                </figure>
-                            </div>
-                            <div class="card-content ">
-                                <p class="title is-size-5">
-                                    <%= product.name %>
-                                </p>
-                                <p>
-                                    <%= product.price %>€
-                                </p>
-                            </div>
-                            <footer class="card-footer">
-                                <p class="card-footer-item">
-                                    <a href="/product/productInfo/<%= product.id %>"
-                                        class="has-text-grey is-primary">Zum Produkt</a>
-                                </p>
-                            </footer>
-                        </div>
-                    </div>
-                    <% }); %>
+          <h3 class="title has-text-centered is-size-4">unsere Empfehlung</h3>
+          <div class="columns mt-5 is-8 is-variable">
+            <% products.forEach(function(product){ %>
+            <div class="column is-4-tablet is-3-desktop">
+              <div class="card my-card">
+                <div class="card-image">
+                  <figure class="image is-square">
+                    <img src="/images/products/protein.jpg" alt="product">
+                  </figure>
+                </div>
+                <div class="card-content ">
+                  <p class="title is-size-5"><%= product.name %></p>
+                  <p><%= product.price %>€</p>
+                </div>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <a href="/product/productInfo/<%= product.id %>" class="has-text-grey is-primary">Zum Produkt</a>
+                  </p>
+                </footer>
+              </div>
             </div>
+            <% }); %>
+          </div>
         </div>
-    </section>
+      </section>
 
 
     <section class="section">
@@ -215,7 +210,7 @@
                 </div>
             </div>
         </div>
-    </section>F
+    </section>
     <script>
         let app = new Vue({
             el: '#app',
