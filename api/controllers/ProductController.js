@@ -106,7 +106,8 @@ module.exports = {
          // Define the parameters of the upload as an object
          // In this example only the path, wehre to upload the image, is set
          let params = {
-           dirname: require('path').resolve(sails.config.appPath, 'assets/images/products/')
+           dirname: require('path').resolve(sails.config.appPath, 'assets/images/products/'),
+           tempDirname: require('path').resolve(sails.config.appPath, '.tmp/public/images/products/')
          };
      
          sails.log.debug(params.dirname);
