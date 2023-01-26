@@ -41,7 +41,7 @@ default:{
     <div class="card my-card">
               <div class="card-image">
                 <figure class="image is-square">
-                    <img :src="'.tmp/public/images/products/'+(product.image==='' ? 'protein.jpg' : product.image)">
+                    <img :src="'/images/products/'+(product.image==='' ? 'protein.jpg' : product.image)">
                 </figure>
               </div>
               <div class="card-content ">
