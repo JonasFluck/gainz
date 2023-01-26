@@ -81,6 +81,7 @@ module.exports.routes = {
   'GET /product/reactivate/:id': { action: 'reactivate-product' },
 
 
+
   'GET /product/product:id': 'product.findOne',
   //'GET /product/:id': 'product.destroy', 
 
@@ -121,4 +122,8 @@ module.exports.routes = {
   'POST /category/update/:id': { action: 'update-category' },
   'GET /category/reactivate/:id': { action: 'reactivate-category' },
 
+
+  //api
+  'GET /api/v1/products': { action: 'api/product-api' },
+  'GET /api/v1/category': { action: 'api/category-api' },
 };

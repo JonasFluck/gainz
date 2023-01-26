@@ -52,7 +52,8 @@ module.exports.policies = {
   'deliver-contact-form-message': true,
   'ausdauer-product' : true,
   'nutrition-product' : true,
-  'kleidung-product' : true
+  'kleidung-product' : true,
+  'api/*':true
 
 
 

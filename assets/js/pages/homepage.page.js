@@ -4,22 +4,37 @@ parasails.registerPage('homepage', {
   //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
   data: {
     //…
+    neuerscheinungen:[]
   },
 
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
   //  ║  ║╠╣ ║╣ ║  ╚╦╝║  ║  ║╣
   //  ╩═╝╩╚  ╚═╝╚═╝ ╩ ╚═╝╩═╝╚═╝
-  beforeMount: function() {
-    //…
+  beforeMount: function() { 
+    this.fetchProducts();
   },
+
   mounted: async function(){
     this._setHeroHeight();
+  
   },
 
   //  ╦╔╗╔╔╦╗╔═╗╦═╗╔═╗╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
   //  ║║║║ ║ ║╣ ╠╦╝╠═╣║   ║ ║║ ║║║║╚═╗
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
+
+
+    fetchProducts: async function(){
+      fetch(`${window.location.origin}/api/v1/products`)
+      .then(response => response.json())
+      .then(data => {
+      data.forEach(element => {
+        this.neuerscheinungen.push(element);
+      });})
+      console.log(this.neuerscheinungen)
+    },
+
 
     clickHeroButton: async function() {
       // Scroll to the 'get started' section:

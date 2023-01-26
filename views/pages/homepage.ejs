@@ -116,77 +116,8 @@
       <div class="container">
         <h3 class="title has-text-centered is-size-4">Unsere Neuerscheinungen</h3>
         <div class="columns mt-5 is-8 is-variable">
-          <div class="column is-4-tablet is-3-desktop">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-square">
-                  <img src="images/products/protein.jpg" alt="product">
-                </figure>
-              </div>
-              <div class="card-content ">
-                <p class="title is-size-5">Gainz Super Whey</p>
-                <p>12,00€</p>
-              </div>
-              <footer class="card-footer">
-                <p class="card-footer-item">
-                  <a href="" class="has-text-grey">Zum Produkt</a>
-                </p>
-              </footer>
-            </div>
-          </div>
-          <div class="column is-4-tablet is-3-desktop">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-square">
-                  <img src="images/products/protein-gummies.jpg" alt="product">
-                </figure>
-              </div>
-              <div class="card-content ">
-                <p class="title is-size-5">Gainz Vitamin Gumz</p>
-                <p>15,00€</p>
-              </div>
-              <footer class="card-footer">
-                <p class="card-footer-item">
-                  <a href="" class="has-text-grey">Zum Produkt</a>
-                </p>
-              </footer>
-            </div>
-          </div>
-          <div class="column is-4-tablet is-3-desktop">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-square">
-                  <img src="images/products/gym-tank.jpg" alt="product">
-                </figure>
-              </div>
-              <div class="card-content ">
-                <p class="title is-size-5">Gainz Tankz</p>
-                <p>20,00€</p>
-              </div>
-              <footer class="card-footer">
-                <p class="card-footer-item">
-                  <a href="" class="has-text-grey">Zum Produkt</a>
-                </p>
-              </footer>
-            </div>
-          </div>
-          <div class="column is-4-tablet is-3-desktop">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-square">
-                  <img src="images/products/supps.jpg" alt="product">
-                </figure>
-              </div>
-              <div class="card-content ">
-                <p class="title is-size-5">Gainz Kreatin Pillz</p>
-                <p>10,00€</p>
-              </div>
-              <footer class="card-footer">
-                <p class="card-footer-item">
-                  <a href="" class="has-text-grey">Zum Produkt</a>
-                </p>
-              </footer>
-            </div>
+          <div class="column is-4-tablet is-3-desktop" v-for="product in neuerscheinungen">
+            <product :product="product" />
           </div>
         </div>
       </div>
