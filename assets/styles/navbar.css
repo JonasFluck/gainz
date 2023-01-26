@@ -55,6 +55,11 @@
 		transform: scale(1.05);
 	}
 
+	.columns{
+		overflow-x: auto;
+		overflow-y: hidden;
+	}
+
 }
 
 

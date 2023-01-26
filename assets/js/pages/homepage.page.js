@@ -32,7 +32,6 @@ parasails.registerPage('homepage', {
       data.forEach(element => {
         this.neuerscheinungen.push(element);
       });})
-      console.log(this.neuerscheinungen)
     },
 
 
