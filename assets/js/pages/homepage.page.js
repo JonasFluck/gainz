@@ -26,7 +26,7 @@ parasails.registerPage('homepage', {
 
 
     fetchProducts: async function(){
-      fetch(`${window.location.origin}/api/v1/products`)
+      fetch(`${window.location.origin}/api/v1/products?isActive=true`)
       .then(response => response.json())
       .then(data => {
       data.forEach(element => {
