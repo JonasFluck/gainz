@@ -8,6 +8,8 @@
  * https://sailsjs.com/docs/concepts/policies
  */
 
+const { RuleTester } = require("eslint");
+
 module.exports.policies = {
 
   '*': 'is-logged-in',
@@ -53,7 +55,8 @@ module.exports.policies = {
   'ausdauer-product' : true,
   'nutrition-product' : true,
   'kleidung-product' : true,
-  'api/*':true
+  'api/*':true,
+  'product-suche' :true,
 
 
 

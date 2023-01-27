@@ -36,14 +36,3 @@ async function sendData(data, url) {
 	}
 }
 
-const search_form = document.getElementById("search_form");
-
-search_form.addEventListener("submit", function (e) {
-	e.preventDefault();
-	console.log(e.target.query.value);
-
-	var data = new FormData();
-	data.append("query", e.target.query.value);
-
-	sendData(data, "api.php");
-});

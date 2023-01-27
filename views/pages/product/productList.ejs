@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Produkte</title>
+</head>
+
+<body>
+    <div id="productList">
+        <nav class="bd-navbar navbar has-background-primary py-3 is-hidden-touch  " role="navigation"
+            aria-label="main navigation" style="max-height: none;">
+            <div id="navbarItems" class="navbar-menu">
+                <div class="navbar-center">
+                    <a class="navbar-item has-text-white has-background-primary" href="/nutrition/nutrition">
+                        <p class="is-size-3">Nutrition</p>
+                    </a>
+                    <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary">
+                        <p class="is-size-3 fix">Fitnessziele</p>
+
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item is-size-4" href="/fitnessziele/abnehmen">
+                                Abnehmen
+                            </a>
+                            <a class="navbar-item is-size-4" href="/fitnessziele/muskelaufbau">
+                                Muskelaufbau
+                            </a>
+                            <a class="navbar-item is-size-4" href="/fitnessziele/ausdauer">
+                                Ausdauer
+                            </a>
+                        </div>
+                    </div>
+                    <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary">
+                        <p class="is-size-3 fix">Ernährungsformen</p>
+
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item is-size-4" href="/ernaehrungsformen/vegan">
+                                Vegan
+                            </a>
+                            <a class="navbar-item is-size-4" href="/ernaehrungsformen/vegetarisch">
+                                Vegetarisch
+                            </a>
+                            <a class="navbar-item is-size-4" href="/ernaehrungsformen/pesketarisch">
+                                Pesketarisch
+                            </a>
+                        </div>
+                    </div>
+                    <a class="navbar-item has-text-white has-background-primary" href="/kleidung/kleidung">
+                        <p class="is-size-3">Kleidung</p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <div id="productList">
+            <section class="section">
+                <div class="container">
+                    <h3 class="title has-text-centered is-size-4">Unsere Produkte</h3>
+                    <div class="columns mt-5 is-8 is-variable">
+                        <div class="column is-4-tablet is-3-desktop" v-for="product in result">
+                            <product :product="product" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+  <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
+</body>
+
+</html>

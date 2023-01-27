@@ -79,6 +79,9 @@ module.exports.routes = {
   'POST /product/newImage': { controller: 'ProductController', action: 'createWithImageStep1' },
   'POST /newWithImage/': { controller: 'ProductController', action: 'createWithImageStep2' },
   'GET /product/reactivate/:id': { action: 'reactivate-product' },
+  'GET /product/productList': {action: 'product-suche'},
+  
+  
 
 
 
