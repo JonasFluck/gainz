@@ -32,7 +32,6 @@ module.exports = {
       .then(data=> {
         data.forEach(element =>{
           if(element.name.includes(param)){
-            sails.log(element);
             result.push(element)
           }
         });
