@@ -62,18 +62,22 @@
 
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-center">
-                    <form id="search_form">
-                        <div class="navbar-item field has-addons">
-                            <p class="control is-expanded">
-                                <input class="input" name="query" type="text" placeholder="I'm looking for..." required>
-                            </p>
-                            <p class="control">
-                                <button class="button" type="submit">
-                                    Search
-                                </button>
-                            </p>
-                        </div>
-                    </form>
+                    <div class="navbar-item">
+                        <form action="/product/productList" method="get">
+                            <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                            <div class="field has-addons">
+                                <div class="control is-expanded">
+                                    <input type="text" id="productSearch" name="search" placeholder="Search…"
+                                        class="input input-bordered" />
+                                </div>
+                                <div class="control">
+                                    <button class="button" type="submit">
+                                        Suchen
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     <a class="navbar-item is-hidden-desktop">
                         <p>Nutrition</p>
                     </a>
@@ -133,28 +137,28 @@
             </div>
         </div>
 
-</body>
+    </body>
 </div>
 <footer class="footer">
     <div class="content has-text centered">
-      <div class="links">
-        <div class="level-item">
-          <a href="/dsgvo" class="has-text-black">
-            Datenschutzerklärung
-          </a>
+        <div class="links">
+            <div class="level-item">
+                <a href="/dsgvo" class="has-text-black">
+                    Datenschutzerklärung
+                </a>
+            </div>
+            <div class="level-item">
+                <a href="/impressum" class="has-text-black">
+                    Impressum
+                </a>
+            </div>
+            <div class="level-item pt-3">
+                <p>Copyright 2023 GAINZ</p>
+            </div>
         </div>
-        <div class="level-item">
-          <a href="/impressum" class="has-text-black">
-            Impressum
-          </a>
-        </div>
-        <div class="level-item pt-3">
-          <p>Copyright 2023 GAINZ</p>
-        </div>
-      </div>
     </div>
 
-  </footer>
+</footer>
 
 
 <!--

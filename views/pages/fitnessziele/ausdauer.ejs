@@ -105,7 +105,9 @@
       <h2 class="mt-2 mb-6 is-size-1 is-size-3-mobile has-text-weight-bold has-text-centered">die richtige Haltung?</h2>
       <div class="columns">
         <div class="column is-6">
-          <img src="/images/pose.png" alt="product">
+          <% if(product.image) { %>
+            <img class="w-100 p-2" src="/images/products/<%= product.image %>">
+<% } %>
         </div>
         <div class="column is-6">
           <p class="subtitle is-4">Eine richtige Pose beim Joggen kann dazu beitragen, Verletzungen zu vermeiden und das

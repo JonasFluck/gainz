@@ -12,7 +12,6 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Vorname</th>
                 <th>Stadt</th>
                 <th>Price</th>
                 <th></th>
@@ -27,10 +26,7 @@
                     <%= order.id %>
                   </td>
                   <td>
-                    <%= order.name %>
-                  </td>
-                  <td>
-                    <%= order.vorname %>
+                    <%= order.name %>  <%= order.vorname %>
                   </td>
                   <td>
                     <%= order.stadt %>
@@ -41,7 +37,13 @@
                 </tr>
               <% }); %>
               
-              <p>Aktueller Benutzer: <%= currentUser.fullName %></p>
+              <section class="hero is-primary has-text-centered">
+                <div class="hero-body">
+                    <p class="title">
+                      Aktueller Benutzer: <%= currentUser.fullName %>
+                    </p>
+                </div>
+            </section>
         </tbody>
     </table> 
     <div class="buttons is-centered mt-2">

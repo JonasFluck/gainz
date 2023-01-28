@@ -80,20 +80,23 @@
   </section>
 
   <section class="section">
-    <div class="container content-is-center"  id="co2-counter">
+    <div class="container content-is-center" id="co2-counter">
       <div class="columns">
         <div class="card">
-          <p class="card-content has-text-centered">Durch vegane Ernährung könnten Sie jährlich  {{ co2Saved }} kg CO2 einsparen</p>
+          <p class="card-content has-text-centered">In {{years}} Jahr/en veganer Ernährung könnten Sie {{ co2Saved }} kg
+            CO2 einsparen</p>
         </div>
         <div id="co2-" class="card">
-          <p class="card-content has-text-centered">Durch vegane Ernährung könnten Sie jährlich  {{ animalsSaved }} Tiere retten</p>
+          <p class="card-content has-text-centered">In {{years}} Jahr/en veganer Ernährung könnten Sie {{ animalsSaved
+            }} Tiere retten</p>
         </div>
         <div id="co2-" class="card">
-          <p class="card-content has-text-centered">Durch vegane Ernährung könnten Sie jährlich  {{ waterSaved}} Kubikliter Wasser sparen</p>
+          <p class="card-content has-text-centered">In {{years}} Jahr/en veganer Ernährung könnten Sie {{ waterSaved}}
+            Kubikliter Wasser sparen</p>
         </div>
       </div>
       <div class="has-text-centered">
-        <button v-on:click="increment" class="button is-primary">Wie viel kann ich sparen?</button>
+        <button v-on:click="increment" class="button is-primary">Vegan ernähren</button>
       </div>
     </div>
   </section>
@@ -104,13 +107,15 @@
       data: {
         co2Saved: 0,
         animalsSaved: 0,
-        waterSaved: 0
+        waterSaved: 0,
+        years: 0,
       },
       methods: {
         increment: function () {
-          this.co2Saved += 1100; 
-      this.animalsSaved += 30;
-      this.waterSaved += 29,2;
+          this.co2Saved += 1100;
+          this.animalsSaved += 30;
+          this.waterSaved += 29, 2;
+          this.years += 1;
         }
       }
     });

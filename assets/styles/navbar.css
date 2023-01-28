@@ -13,7 +13,7 @@
 		flex-direction: row;
 	}
 	.navbar-center form {
-		display: flex;
+		display: inline-block;
 		flex-grow: 1;
 	}
 	.navbar-link,
@@ -25,6 +25,10 @@
 		flex-shrink: 0;
 		justify-content: center;
 	}
+	.desktop-search .control {
+		width: 100%;
+	 }
+	 
 
 	.navbar-dropdown{
 		border-top: 1px solid #00d1b2;
