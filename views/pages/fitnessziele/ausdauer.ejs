@@ -13,71 +13,77 @@
 
   <!--Navbar-->
   <nav class="bd-navbar navbar has-background-primary py-3 is-hidden-touch  " role="navigation"
-  aria-label="main navigation" style="max-height: none;">
-  <div id="navbarItems" class="navbar-menu">
-    <div class="navbar-center">
-      <a class="navbar-item has-text-white has-background-primary" href="/nutrition/nutrition">
-        <p class="is-size-3">Nutrition</p>
-      </a>
-      <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary" >
-        <p class="is-size-3 fix">Fitnessziele</p>
+    aria-label="main navigation" style="max-height: none;">
+    <div id="navbarItems" class="navbar-menu">
+      <div class="navbar-center">
+        <a class="navbar-item has-text-white has-background-primary" href="/nutrition/nutrition">
+          <p class="is-size-3">Nutrition</p>
+        </a>
+        <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary">
+          <p class="is-size-3 fix">Fitnessziele</p>
 
-        <div class="navbar-dropdown">
-          <a class="navbar-item is-size-4" href="/fitnessziele/muskelaufbau">
-            Muskelaufbau
-          </a>
-          <a class="navbar-item is-size-4" href="/fitnessziele/ausdauer">
-            Ausdauer
-          </a>
-        </div>
-      </div>
-      <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary">
-        <p class="is-size-3 fix">Ernährungsformen</p>
-
-        <div class="navbar-dropdown"> 
-          <a class="navbar-item is-size-4"  href="/ernaehrungsformen/vegan">
-            Vegan
-          </a>
-          <a class="navbar-item is-size-4" href="/ernaehrungsformen/vegetarisch">
-            Vegetarisch
-          </a>
-        </div>
-      </div>
-      <a class="navbar-item has-text-white has-background-primary" href="/kleidung/kleidung">
-        <p class="is-size-3">Kleidung</p>
-      </a>
-    </div>
-  </div>
-</nav>
-
-<section class="section">
-  <div class="container">
-    <h3 class="title has-text-centered is-size-4">Die besten Produkte für deine Ausdauer</h3>
-    <div class="columns mt-5 is-8 is-variable">
-      <% products.forEach(function(product){ %>
-      <div class="column is-4-tablet is-3-desktop">
-        <div class="card my-card">
-          <div class="card-image">
-            <figure class="image is-square">
-              <img src="/images/products/protein.jpg" alt="product">
-            </figure>
+          <div class="navbar-dropdown">
+            <a class="navbar-item is-size-4" href="/fitnessziele/muskelaufbau">
+              Muskelaufbau
+            </a>
+            <a class="navbar-item is-size-4" href="/fitnessziele/ausdauer">
+              Ausdauer
+            </a>
           </div>
-          <div class="card-content ">
-            <p class="title is-size-5"><%= product.name %></p>
-            <p><%= product.price %>€</p>
-          </div>
-          <footer class="card-footer">
-            <p class="card-footer-item">
-              <a href="/product/productInfo/<%= product.id %>" class="has-text-grey is-primary">Zum Produkt</a>
-            </p>
-          </footer>
         </div>
+        <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary">
+          <p class="is-size-3 fix">Ernährungsformen</p>
+
+          <div class="navbar-dropdown">
+            <a class="navbar-item is-size-4" href="/ernaehrungsformen/vegan">
+              Vegan
+            </a>
+            <a class="navbar-item is-size-4" href="/ernaehrungsformen/vegetarisch">
+              Vegetarisch
+            </a>
+          </div>
+        </div>
+        <a class="navbar-item has-text-white has-background-primary" href="/kleidung/kleidung">
+          <p class="is-size-3">Kleidung</p>
+        </a>
       </div>
-      <% }); %>
     </div>
-  </div>
-</section>
-<!-- Bestseller-->
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      <h3 class="title has-text-centered is-size-4">Die besten Produkte für deine Ausdauer</h3>
+      <div class="columns mt-5 is-8 is-variable">
+        <% products.forEach(function(product){ %>
+          <div class="column is-4-tablet is-3-desktop">
+            <div class="card my-card">
+              <div class="card-image">
+                <figure class="image is-square">
+                  <% if(product.image) { %>
+                    <img class="w-100 p-2" src="/images/products/<%= product.image %>">
+                    <% } %>
+                </figure>
+              </div>
+              <div class="card-content ">
+                <p class="title is-size-5">
+                  <%= product.name %>
+                </p>
+                <p>
+                  <%= product.price %>€
+                </p>
+              </div>
+              <footer class="card-footer">
+                <p class="card-footer-item">
+                  <a href="/product/productInfo/<%= product.id %>" class="has-text-grey is-primary">Zum Produkt</a>
+                </p>
+              </footer>
+            </div>
+          </div>
+          <% }); %>
+      </div>
+    </div>
+  </section>
+  <!-- Bestseller-->
 
   <section class="section">
     <div class="container">
@@ -105,9 +111,7 @@
       <h2 class="mt-2 mb-6 is-size-1 is-size-3-mobile has-text-weight-bold has-text-centered">die richtige Haltung?</h2>
       <div class="columns">
         <div class="column is-6">
-          <% if(product.image) { %>
-            <img class="w-100 p-2" src="/images/products/<%= product.image %>">
-<% } %>
+          <img src="/images/pose.png" alt="Läufer">
         </div>
         <div class="column is-6">
           <p class="subtitle is-4">Eine richtige Pose beim Joggen kann dazu beitragen, Verletzungen zu vermeiden und das
@@ -178,7 +182,7 @@
         setCaloriestoZero: function () {
           this.caloriesBurned = 0;
         }
-      },  
+      },
     });
   </script>
 </body>
