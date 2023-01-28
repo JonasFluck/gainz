@@ -93,15 +93,11 @@ module.exports.routes = {
   'GET /admin': { action: 'accessadmin', locals: { layout: 'admin-layout' } },
 
 
-  'GET /ernaehrungsformen/ernaehrungsformen': { view: 'pages/ernaehrungsformen/ernaehrungsformen' },
   'GET /ernaehrungsformen/vegetarisch': { view: 'pages/ernaehrungsformen/vegetarisch' },
-  'GET /ernaehrungsformen/pesketarisch': { view: 'pages/ernaehrungsformen/pesketarisch' },
   'GET /ernaehrungsformen/vegan': { view: 'pages/ernaehrungsformen/vegan' },
 
-  'GET /fitnessziele/fitnessziele': { view: 'pages/fitnessziele/fitnessziele' },
-  'GET /fitnessziele/abnehmen': { view: 'pages/fitnessziele/abnehmen' },
   'GET /fitnessziele/ausdauer': { action: 'ausdauer-product' },
-  'GET /fitnessziele/muskelaufbau': { view: 'pages/fitnessziele/muskelaufbau' },
+  'GET /fitnessziele/muskelaufbau': { action: 'muskelaufbau-products'},
   'GET /kleidung/kleidung': { action: 'kleidung-product' },
   'GET /nutrition/nutrition': { action: 'nutrition-product' },
 

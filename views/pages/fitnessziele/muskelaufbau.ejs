@@ -1,56 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muskelaufbau</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muskelaufbau</title>
 </head>
+
 <body>
+  <div id="muskelaufbau">
     <!--Navbar-->
     <nav class="bd-navbar navbar has-background-primary py-3 is-hidden-touch  " role="navigation"
-    aria-label="main navigation" style="max-height: none;">
-    <div id="navbarItems" class="navbar-menu">
-      <div class="navbar-center">
-        <a class="navbar-item has-text-white has-background-primary" href="/nutrition/nutrition">
-          <p class="is-size-3">Nutrition</p>
-        </a>
-        <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary" >
-          <p class="is-size-3 fix">Fitnessziele</p>
-  
-          <div class="navbar-dropdown">
-            <a class="navbar-item is-size-4" href="/fitnessziele/abnehmen">
-              Abnehmen
-            </a>
-            <a class="navbar-item is-size-4" href="/fitnessziele/muskelaufbau">
-              Muskelaufbau
-            </a>
-            <a class="navbar-item is-size-4" href="/fitnessziele/ausdauer">
-              Ausdauer
-            </a>
+      aria-label="main navigation" style="max-height: none;">
+      <div id="navbarItems" class="navbar-menu">
+        <div class="navbar-center">
+          <a class="navbar-item has-text-white has-background-primary" href="/nutrition/nutrition">
+            <p class="is-size-3">Nutrition</p>
+          </a>
+          <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary">
+            <p class="is-size-3 fix">Fitnessziele</p>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item is-size-4" href="/fitnessziele/muskelaufbau">
+                Muskelaufbau
+              </a>
+              <a class="navbar-item is-size-4" href="/fitnessziele/ausdauer">
+                Ausdauer
+              </a>
+            </div>
           </div>
-        </div>
-        <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary">
-          <p class="is-size-3 fix">Ernährungsformen</p>
-  
-          <div class="navbar-dropdown"> 
-            <a class="navbar-item is-size-4"  href="/ernaehrungsformen/vegan">
-              Vegan
-            </a>
-            <a class="navbar-item is-size-4" href="/ernaehrungsformen/vegetarisch">
-              Vegetarisch
-            </a>
-            <a class="navbar-item is-size-4" href="/ernaehrungsformen/pesketarisch">
-              Pesketarisch
-            </a>
+          <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary">
+            <p class="is-size-3 fix">Ernährungsformen</p>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item is-size-4" href="/ernaehrungsformen/vegan">
+                Vegan
+              </a>
+              <a class="navbar-item is-size-4" href="/ernaehrungsformen/vegetarisch">
+                Vegetarisch
+              </a>
+            </div>
           </div>
+          <a class="navbar-item has-text-white has-background-primary" href="/kleidung/kleidung">
+            <p class="is-size-3">Kleidung</p>
+          </a>
         </div>
-        <a class="navbar-item has-text-white has-background-primary" href="/kleidung/kleidung">
-          <p class="is-size-3">Kleidung</p>
-        </a>
       </div>
-    </div>
-  </nav>
-    <h1>Muskelaufbau</h1>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="mt-2 mb-6 is-size-1 is-size-3-mobile has-text-weight-bold has-text-centered">Muskelaufbau einfach
+          gemacht
+        </h2>
+        <div class="columns">
+          <div class="column is-6">
+            <img src="/images/training.jpg" alt="product">
+          </div>
+          <div class="column is-6">
+            <p class="subtitle is-4">Muskelaufbau kann eine Herausforderung sein, besonders für Anfänger. Um erfolgreich
+              Muskeln aufzubauen, ist es wichtig, ein ausgewogenes Training und Ernährungsplan zu haben.
+
+              Das Training sollte mindestens 3 mal pro Woche stattfinden und aus einer Kombination von Kraft- und
+              Ausdauertraining bestehen. Es ist wichtig, die
+              Gewichte langsam zu steigern, um Verletzungen zu vermeiden und den Muskelaufbau zu fördern.
+              Eine ausgewogene Ernährung ist ebenso wichtig wie das Training. Es ist wichtig, genug Protein zu sich zu
+              nehmen, um den Muskelaufbau zu unterstützen. Auch ausreichend Kohlenhydrate und Fette sollten in der
+              Ernährung enthalten sein. Es empfiehlt sich, die Ernährung mit einem Ernährungsberater oder
+              Diätassistenten zu besprechen, um sicherzustellen, dass man alle notwendigen Nährstoffe erhält.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h3 class="title has-text-centered is-size-4">Unsere Supplements</h3>
+        <div class="columns mt-5 is-8 is-variable">
+          <% products.forEach(function(product){ %>
+            <div class="column is-4-tablet is-3-desktop">
+              <div class="card my-card">
+                <div class="card-image">
+                  <figure class="image is-square">
+                    <img src="/images/products/protein.jpg" alt="product">
+                  </figure>
+                </div>
+                <div class="card-content ">
+                  <p class="title is-size-5">
+                    <%= product.name %>
+                  </p>
+                  <p>
+                    <%= product.price %>€
+                  </p>
+                </div>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <a href="/product/productInfo/<%= product.id %>" class="has-text-grey is-primary">Zum Produkt</a>
+                  </p>
+                </footer>
+              </div>
+            </div>
+            <% }); %>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="title is-2 has-text-weight-bold has-text-centered">Trainingsplan für Anfänger</h2>
+      <div class="columns">
+        <div class="column">
+          <div class="card my-card">
+            <div class="card-content">
+              <h3 class="title is-4">Montag</h3>
+              <p>Bankdrücken: 3 Sätze x 8-12 Wiederholungen</p>
+              <p>Kniebeugen: 3 Sätze x 8-12 Wiederholungen</p>
+              <p>Liegestütze: 3 Sätze x 8-12 Wiederholungen</p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card my-card">
+            <div class="card-content">
+              <h3 class="title is-4">Dienstag</h3>
+              <p>Latziehen: 3 Sätze x 8-12 Wiederholungen</p>
+              <p>Klimmzüge: 3 Sätze x 8-12 Wiederholungen</p>
+              <p>Schulterdrücken: 3 Sätze x 8-12 Wiederholungen</p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card my-card">
+            <div class="card-content">
+              <h3 class="title is-4">Donnerstag</h3>
+              <p>Bankdrücken: 3 Sätze x 8-12 Wiederholungen</p>
+              <p>Kniebeugen: 3 Sätze x 8-12 Wiederholungen</p>
+              <p>Liegestütze: 3 Sätze x 8-12 Wiederholungen</p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card my-card">
+            <div class="card-content">
+              <h3 class="title is-4">Freitag</h3>
+              <p>Latziehen: 3 Sätze x 8-12 Wiederholungen</p>
+              <p>Klimmzüge: 3 Sätze x 8-12 Wiederholungen</p>
+              <p>Schulterdrücken: 3 Sätze x 8-12 Wiederholungen</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="has-text-centered my-3">Es ist wichtig zu beachten, dass dies nur ein Beispiel ist und dass du die CSS-Klassen von Bulma verwenden
+        musst, um es in deine Webseite zu integrieren. Es wäre auch ratsam, einen qualifizierten Trainer zu
+        konsultieren, bevor Sie mit dem Trainingsplan beginnen.</p>
+      </section>
+
+
+
+
+
+
+  </div>
 </body>
+
 </html>

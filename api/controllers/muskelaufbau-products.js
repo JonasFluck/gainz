@@ -1,7 +1,8 @@
+
 module.exports = {
 
 
-  friendlyName: 'Kleidung product',
+  friendlyName: 'Muskelaufbau product',
 
 
   description: '',
@@ -17,19 +18,19 @@ module.exports = {
     success: {
       statusCode: 200,
       description: 'Requesting user is a guest, so show the public landing page.',
-      viewTemplatePath: 'pages/kleidung/kleidung'
+      viewTemplatePath: 'pages/fitnessziele/muskelaufbau'
     },
     redirect: {
       responseType: 'redirect',
       description: 'Requesting user is logged in, so redirect to the internal welcome page.',
-      viewTemplatePath: 'pages/kleidung/kleidung'
+      viewTemplatePath: 'pages/fitnessziele/muskelaufbau'
     },
 
   },
 
 
   fn: async function (inputs) {
-    let category = await Category.findOne({ name: 'Kleidung' });
+    let category = await Category.findOne({ name: 'Supplements' });
     if (!category) {
       console.log("Category not found");
       return null;
@@ -38,5 +39,7 @@ module.exports = {
     let products = await Product.find({ where: { isActive: true, category: categoryid }, limit: 4 });
     return { products };
   }
+
+
 
 };
