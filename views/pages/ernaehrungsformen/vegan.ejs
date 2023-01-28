@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>Document</title>
 </head>
+
 <body>
   <nav class="bd-navbar navbar has-background-primary py-3 is-hidden-touch  " role="navigation"
     aria-label="main navigation" style="max-height: none;">
@@ -14,13 +17,10 @@
         <a class="navbar-item has-text-white has-background-primary" href="/nutrition/nutrition">
           <p class="is-size-3">Nutrition</p>
         </a>
-        <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary" >
+        <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary">
           <p class="is-size-3 fix">Fitnessziele</p>
-  
+
           <div class="navbar-dropdown">
-            <a class="navbar-item is-size-4" href="/fitnessziele/abnehmen">
-              Abnehmen
-            </a>
             <a class="navbar-item is-size-4" href="/fitnessziele/muskelaufbau">
               Muskelaufbau
             </a>
@@ -31,16 +31,13 @@
         </div>
         <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary">
           <p class="is-size-3 fix">Ernährungsformen</p>
-  
-          <div class="navbar-dropdown"> 
-            <a class="navbar-item is-size-4"  href="/ernaehrungsformen/vegan">
+
+          <div class="navbar-dropdown">
+            <a class="navbar-item is-size-4" href="/ernaehrungsformen/vegan">
               Vegan
             </a>
             <a class="navbar-item is-size-4" href="/ernaehrungsformen/vegetarisch">
               Vegetarisch
-            </a>
-            <a class="navbar-item is-size-4" href="/ernaehrungsformen/pesketarisch">
-              Pesketarisch
             </a>
           </div>
         </div>
@@ -50,6 +47,74 @@
       </div>
     </div>
   </nav>
-    <h1>Vegan</h1>
+
+
+  <section class="section">
+    <div class="container">
+      <h2 class="mt-2 mb-6 is-size-1 is-size-3-mobile has-text-weight-bold has-text-centered">Was ist Vegan?</h2>
+      <div class="columns">
+        <div class="column is-6">
+          <img src="/images/vegan.jpg" alt="product">
+        </div>
+        <div class="column is-6">
+          <p class="subtitle is-5">Veganismus ist eine Lebensweise und Ernährungsform, die auf den Verzicht von
+            tierischen
+            Produkten beruht. Dies umfasst nicht nur Fleisch, sondern auch Milchprodukte, Eier und Honig. Der Übergang
+            zu
+            einer veganen Ernährung hat viele Vorteile für die Gesundheit, die Umwelt und die Tiere.
+
+            Einer der wichtigsten Vorteile von veganem Essen ist, dass es die Risiken für Herz-Kreislauf-Erkrankungen,
+            Diabetes und bestimmte Arten von Krebs reduziert. Vegane Ernährung ist auch reich an Nährstoffen wie Vitamin
+            C, Vitamin E, Folsäure, Magnesium und Ballaststoffen.
+
+            Auch für die Umwelt ist veganismus von Vorteil, da die Produktion von Fleisch und Milchprodukten einen
+            großen
+            Beitrag zur Umweltverschmutzung leistet. Der Anbau von pflanzlichen Lebensmitteln verbraucht weniger Wasser
+            und Energie und verursacht weniger Treibhausgasemissionen als die Produktion von Fleisch und
+            Milch.Schließlich ist der Verzicht auf tierische Produkte auch von Vorteil für die Tiere. Veganismus
+            unterstützt die Forderung nach besseren Lebensbedingungen für Tiere und trägt dazu
+            bei, dass weniger Tiere geschlachtet werden müssen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-is-center"  id="co2-counter">
+      <div class="columns">
+        <div class="card">
+          <p class="card-content has-text-centered">Durch vegane Ernährung könnten Sie jährlich  {{ co2Saved }} kg CO2 einsparen</p>
+        </div>
+        <div id="co2-" class="card">
+          <p class="card-content has-text-centered">Durch vegane Ernährung könnten Sie jährlich  {{ animalsSaved }} Tiere retten</p>
+        </div>
+        <div id="co2-" class="card">
+          <p class="card-content has-text-centered">Durch vegane Ernährung könnten Sie jährlich  {{ waterSaved}} Kubikliter Wasser sparen</p>
+        </div>
+      </div>
+      <div class="has-text-centered">
+        <button v-on:click="increment" class="button is-primary">Wie viel kann ich sparen?</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    var app = new Vue({
+      el: '#co2-counter',
+      data: {
+        co2Saved: 0,
+        animalsSaved: 0,
+        waterSaved: 0
+      },
+      methods: {
+        increment: function () {
+          this.co2Saved += 1100; 
+      this.animalsSaved += 30;
+      this.waterSaved += 29,2;
+        }
+      }
+    });
+  </script>
 </body>
+
 </html>

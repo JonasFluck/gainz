@@ -1,55 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+
 <body>
   <nav class="bd-navbar navbar has-background-primary py-3 is-hidden-touch  " role="navigation"
-  aria-label="main navigation" style="max-height: none;">
-  <div id="navbarItems" class="navbar-menu">
-    <div class="navbar-center">
-      <a class="navbar-item has-text-white has-background-primary" href="/nutrition/nutrition">
-        <p class="is-size-3">Nutrition</p>
-      </a>
-      <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary" >
-        <p class="is-size-3 fix">Fitnessziele</p>
+    aria-label="main navigation" style="max-height: none;">
+    <div id="navbarItems" class="navbar-menu">
+      <div class="navbar-center">
+        <a class="navbar-item has-text-white has-background-primary" href="/nutrition/nutrition">
+          <p class="is-size-3">Nutrition</p>
+        </a>
+        <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary">
+          <p class="is-size-3 fix">Fitnessziele</p>
 
-        <div class="navbar-dropdown">
-          <a class="navbar-item is-size-4" href="/fitnessziele/abnehmen">
-            Abnehmen
-          </a>
-          <a class="navbar-item is-size-4" href="/fitnessziele/muskelaufbau">
-            Muskelaufbau
-          </a>
-          <a class="navbar-item is-size-4" href="/fitnessziele/ausdauer">
-            Ausdauer
-          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item is-size-4" href="/fitnessziele/muskelaufbau">
+              Muskelaufbau
+            </a>
+            <a class="navbar-item is-size-4" href="/fitnessziele/ausdauer">
+              Ausdauer
+            </a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary">
+          <p class="is-size-3 fix">Ernährungsformen</p>
+
+          <div class="navbar-dropdown">
+            <a class="navbar-item is-size-4" href="/ernaehrungsformen/vegan">
+              Vegan
+            </a>
+            <a class="navbar-item is-size-4" href="/ernaehrungsformen/vegetarisch">
+              Vegetarisch
+            </a>
+          </div>
+        </div>
+        <a class="navbar-item has-text-white has-background-primary" href="/kleidung/kleidung">
+          <p class="is-size-3">Kleidung</p>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+  <section class="section">
+    <div class="container">
+      <h2 class="mt-2 mb-6 is-size-1 is-size-3-mobile has-text-weight-bold has-text-centered">Warum vegetarisch?</h2>
+      <div class="columns">
+        <div class="column is-6">
+          <img src="/images/vegetarisch.jpg" alt="product">
+        </div>
+        <div class="column is-6">
+          <p class="subtitle is-4">Vegetarisches Essen kann sehr gesund sein, da es in der Regel reich an pflanzlichen
+            Nährstoffen wie Vitaminen, Mineralien und Ballaststoffen ist. Es ist auch in der Regel niedriger in
+            gesättigten Fettsäuren und Cholesterin als fleischhaltige Ernährung. Darüber hinaus kann eine vegetarische
+            Ernährung dazu beitragen, das Risiko von Herz-Kreislauf-Erkrankungen, Bluthochdruck und Diabetes zu
+            reduzieren. Es gibt auch Hinweise darauf, dass eine vegetarische Ernährung dazu beitragen kann, das
+            Körpergewicht im Rahmen zu halten und das Risiko von bestimmten Krebsarten zu reduzieren.</p>
         </div>
       </div>
-      <div class="navbar-item has-dropdown is-hoverable has-text-white has-background-primary">
-        <p class="is-size-3 fix">Ernährungsformen</p>
+    </div>
+  </section>
 
-        <div class="navbar-dropdown"> 
-          <a class="navbar-item is-size-4"  href="/ernaehrungsformen/vegan">
-            Vegan
-          </a>
-          <a class="navbar-item is-size-4" href="/ernaehrungsformen/vegetarisch">
-            Vegetarisch
-          </a>
-          <a class="navbar-item is-size-4" href="/ernaehrungsformen/pesketarisch">
-            Pesketarisch
-          </a>
+  <div class="section">
+    <h2 class="mt-2 mb-2 is-size-1 is-size-3-mobile has-text-weight-bold has-text-centered">Vegetarische Gerichte</h2>
+    <div class="columns">
+      <div class="column">
+        <div class="card my-card">
+          <div class="card-content">
+            <h3 class="title is-4">Gemüsepfanne</h3>
+            <img src="/images/vegipfanne.jpg">
+            <p>Eine schnelle und einfache vegetarische Option, die aus gebratenem Gemüse wie Paprika, Zucchini und
+              Auberginen besteht, serviert mit Reis oder Nudeln.</p>
+          </div>
         </div>
       </div>
-      <a class="navbar-item has-text-white has-background-primary" href="/kleidung/kleidung">
-        <p class="is-size-3">Kleidung</p>
-      </a>
+      <div class="column">
+        <div class="card my-card">
+          <div class="card-content">
+            <h3 class="title is-4">Vegetarische Lasagne</h3>
+            <img src="/images/Lasagne.jpg">
+            <p>Ein Klassiker, der aus Schichten von Nudelplatten, Tomatensauce und gewürfelten Zutaten wie Zucchini,
+              Paprika und Champignons besteht.</p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card my-card">
+          <div class="card-content">
+            <h3 class="title is-4">Linsensuppe</h3>
+            <img src="/images/Suppe.jpg">
+            <p>Eine herzhafte und nahrhafte Suppe, die aus braunen oder grünen Linsen, Zwiebeln, Karotten und Gewürzen
+              wie Kreuzkümmel und Paprika zubereitet wird.</p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card my-card">
+          <div class="card-content">
+            <h3 class="title is-4">Vegetarische Burger</h3>
+            <img src="/images/burger.jpg">
+            <p>Ein leckerer Burger aus pflanzlichen Pattys wie Soja, Kichererbsen oder
+              Champignons und auf einem Brötchen serviert.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</nav>
-    <h1>Vegetarisch</h1>
 </body>
+
 </html>
