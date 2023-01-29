@@ -54,4 +54,5 @@ module.exports.policies = {
   'api/*':true,
   'product-suche' :true,
   'muskelaufbau-products' : true,
+  'list-categories':true
 };
