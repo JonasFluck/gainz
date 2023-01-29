@@ -287,10 +287,36 @@ Die tatsächliche Datenbankstruktur in unserem System weicht von unserem ursprü
 
 # 2. Implementierung
 
-## Implementierung UC-INFO
+## AJAX
 
-Unsere Homepage wird einerseits mittels Actions, anderseits mittels Parasails angesteuert:
-`<section class="section">
+Um Ajax sinnvoll nutzen zu können wurden zunächst zwei Enpoints bereitgestellt zur Abfrage von:
+- Produkten (<basepath>/api/v1/products)
+- Kategorien (<basepath>/api/v1/category)
+
+Beispiele für die Verwendung von AJAX finden sich unter anderem in [homepageParasails](../assets/js/pages/homepage.page.js) oder [product-suche](../api/controllers/product-suche.js)
+und folgen immer der gängigen Syntax:
+```javascript
+ajaxExampleFunction: async function(){
+      fetch(`<basepath>/...`)
+      .then(response => response.json())
+      .then(data => {
+     ...
+      });})
+    }
+```
+
+## Vue
+
+Die Daten für Vue kommen in dieser Applikation in zwei Varianten zum Einsatz, einerseits direkt als script auf der page (Bsp. [ausdauerPage](../views/pages/fitnessziele/ausdauer.ejs)), andererseits über [parasails](https://www.npmjs.com/package/parasails/v/0.3.0) templates(Bsp. [homepageParasails](../assets/js/pages/homepage.page.js)).
+Die Verwendung von vue in den views lässt sich schön am Beispiel der [homepage](../views/pages/homepage.ejs) sehen.
+
+Weiterhin haben wir eine eigene Vue Component für unsere Produktkarten erstellt, da diese oft in unserer Webanwendung verwendet werden und es deutlich einfacher und eleganter ist hier mit einer eigenen Komponente zu arbeiten der lediglich ein Object vom Typ Produkt übergeben werden muss um eine Produktkarte darzustellen. 
+<br>Definiert ist diese Komponente in [product.component](../assets/js/components/product.component.js)
+Verwenungsbeispiele finden sich ebenfalls auf [homepageParasails](../assets/js/pages/homepage.page.js) in folgendem Format:
+
+```html
+<!--Bestseller-->
+    <section class="section">
       <div class="container">
         <h3 class="title has-text-centered is-size-4">Unsere Bestseller</h3>
         <div class="columns mt-5 is-8 is-variable">
@@ -299,8 +325,26 @@ Unsere Homepage wird einerseits mittels Actions, anderseits mittels Parasails an
           </div>
         </div>
       </div>
-    </section>`
-    Mithilfe dieser Section können wir über die Produkte iterrieren, welche uns mittels der Action [view-homepage-or-redirected](/api/controllers/view-homepage-or-redirect.js) geliefert wird:
+    </section>
+
+```
+## Implementierung UC-INFO
+
+Unsere Homepage wird einerseits mittels Actions, anderseits mittels Parasails angesteuert:
+```html
+<section class="section">
+      <div class="container">
+        <h3 class="title has-text-centered is-size-4">Unsere Bestseller</h3>
+        <div class="columns mt-5 is-8 is-variable">
+          <div class="column is-4-tablet is-3-desktop" v-for="product in products">
+            <product :product="product" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+```
+Mithilfe dieser Section können wir über die Produkte iterrieren, welche uns mittels der Action [view-homepage-or-redirected](/api/controllers/view-homepage-or-redirect.js) geliefert wird:
 
    ```javascript
     fn: async function () {
@@ -313,7 +357,14 @@ Unsere Homepage wird einerseits mittels Actions, anderseits mittels Parasails an
    Jedoch haben wir für unseren UC Info nicht nur actions benutzt, sondern auch parasails: Unsere Neuererscheinungen werden mittels parasails und ajax auf die Homepage geladen [homepageParasails](../assets/js/pages/homepage.page.js):
 
 ```javascript
-
+fetchProducts: async function(){
+      fetch(`${window.location.origin}/api/v1/products?isActive=true`)
+      .then(response => response.json())
+      .then(data => {
+      data.forEach(element => {
+        this.neuerscheinungen.push(element);
+      });})
+    },
 ```
 
 # IST NOCH NICHT IM BRANCH GEMERGED. DESWEGEN TO DO
