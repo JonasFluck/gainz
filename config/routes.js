@@ -105,7 +105,7 @@ module.exports.routes = {
   //shopping basket
   'GET /order/basket': { controller: 'BasketController', action: 'show' },
   'GET /order/basket/put/:id': { controller: 'BasketController', action: 'put' },
-  'GET /order/basket/remove/:id': { controller: 'BasketController', action: 'remove' },
+  'GET /order/basket/remove/:index': { controller: 'BasketController', action: 'remove' },
   'GET /order/orders': { controller: 'OrderController', action: 'findUserOrders' },
 
   //Bestellung
