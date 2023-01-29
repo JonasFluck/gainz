@@ -118,12 +118,12 @@ module.exports = {
              sails.log("Uploaded!")
            }
            let fname = require('path').basename(uploadedFiles[0].fd);
-           sails.log.debug(fname);
            await Product.create({
              "image": fname,
              "name": req.session.name,
              "category": req.session.category,
              "description": req.session.description,
+             "descriptionLong":req.session.descriptionLong,
              "price": req.session.price
            })
          };
