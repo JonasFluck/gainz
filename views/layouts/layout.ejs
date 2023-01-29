@@ -104,31 +104,34 @@
               </span>
               <span>Konto</span>
             </span>
-          </a> <a class="navbar-item" href="/order/basket" <% if(req.session.basket && req.session.basket.length> 0){
-            %>
-            <span class="icon-text">
-              <span class="icon">
-                <img src="/images/WarenkorbPunkt.png" alt="Warenkorb">
-              </span>
-              <span>Warenkorb</span>
-
-            </span>
-            <% } else{ %>
+          </a>
+          <a class="navbar-item" href="/order/basket">
+            <% if(typeof req.session.basket !=='undefined' && req.session.basket && req.session.basket.length> 0){
+              %>
               <span class="icon-text">
                 <span class="icon">
-                  <img src="/images/Warenkorb.png" alt="Warenkorb">
+                  <img src="/images/WarenkorbPunkt.png" alt="Warenkorb">
                 </span>
                 <span>Warenkorb</span>
-              </span>
-              <% } %>
 
+              </span>
+              <% } else{ %>
+                <span class="icon-text">
+                  <span class="icon">
+                    <img src="/images/Warenkorb.png" alt="Warenkorb">
+                  </span>
+                  <span>Warenkorb</span>
+                </span>
+                <% } %>
           </a>
         </div>
       </div>
       </a>
     </nav>
   </body>
-  <%- body %>
+  
+
+      <%- body %>
 </div>
 <footer class="footer">
   <div class="content has-text centered">
