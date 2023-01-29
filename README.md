@@ -328,6 +328,7 @@ Verwenungsbeispiele finden sich ebenfalls auf [homepageParasails](../assets/js/p
     </section>
 
 ```
+
 ## Implementierung UC-INFO
 
 Unsere Homepage wird einerseits mittels Actions, anderseits mittels Parasails angesteuert:
@@ -366,8 +367,56 @@ fetchProducts: async function(){
       });})
     },
 ```
+### Use Case wurde komplett umgesetzt
 
-# IST NOCH NICHT IM BRANCH GEMERGED. DESWEGEN TO DO
+## Use Case: Produkt bestellen (TRANSACTION)
+
+Bei gainz.com haben sowohl registrierte Benutzer als auch Gäste die Möglichkeit, Produkte aus dem Sortiment in den Warenkorb zu legen. 
+
+Wenn das gewünschte Produkt auf Lager ist, wird es dem Warenkorb hinzugefügt. 
+
+Im Anschluss kann der gesamte Warenkorb über einen mehrstufigen Bestellprozess bezahlt und bestellt werden. 
+
+Hier wurden auch, wie im dazugehörigen [Controller](/api/controllers/OrderController.js) einsehbar <b>sessions<b> verwendet.
+### Voraussetzungen
+
+- Produkt muss existieren
+- Gäste und registrierte Benutzer haben Zugang zur Bestellfunktion
+
+### Ablauf
+
+1. Auswahl des gewünschten Produkts
+2. Hinzufügen zum Warenkorb
+3. Durchführung des Bestellprozesses
+
+### Use Case wurde komplett umgesetzt
+
+## Use Case: Sortiment durchsuchen (SEARCH)
+
+### Funktionsbeschreibung
+
+Die Besucher:innen  haben die Möglichkeit, das Produktsortiment auf der Website zu durchsuchen. 
+Der Admin hat zudem die Möglichkeit, auf dem Admin-Panel nach Produkten zu suchen mit allen Beschreibungen.
+
+### Funktionalität
+- Durchsicht des gesamten Produktsortiments
+- Direkte Suche nach Produkten mittels Namen
+
+## Use Case: Lagerbestände verwalten (CRUD)
+
+### Actor(s)
+- Mitarbeiter
+
+### Beschreibung
+Dem Mitarbeiter ist es möglich, die aktuellen Lagerbestände anzupassen.
+Dabei kann er sowohl Produkte und Kategorien hinzufügen, ändern oder löschen
+
+### Vorbedingung
+- Startseite aufgerufen
+- Als Admin angemeldet
+
+### Use Case wurde komplett umgesetzt
+
 
 # 3. Bereitstellung
 
