@@ -2,7 +2,92 @@
 
 GAINZ.com ist eine moderne, minimalistische und responsive Web-Applikation, die als Onlineshop dient. Sie bietet verschiedene Produkte mit weiteren Auswahlmöglichkeiten für den Kunden an und ist bis auf das Zahlungsverfahren in einen funktionierenden Bestellprozess eingebunden. Das Ziel ist es, den Webshop bis zum 28. Januar 2023 im Browser erreichbar zu machen.
 
-## Kontextdiagramm
+## Projekttziel
+
+GAINZ.com als fertige Web-Applikation mit einigen anzubietenden Produkten, welche jeweils
+weitere Auswahlmöglichkeiten für den Kunden bieten und bis auf das Zahlungsverfahren in
+einen funktionierenden Bestellprozess eingebunden werden können als modernen,
+minimalistischen und responsive Webshop bis zum 28. Januar 2023 fertig stellen und im
+Browser erreichbar machen.
+
+## Personas
+
+## Laura Radler
+
+- Beruf: Ernährungswissenschaften-Studentin
+- Alter: 26
+- Familienstand: Ledig
+- Wohnsituation: Studenten-WG
+
+### Lifestyle
+
+- Minimalistisch
+- Technisch versiert
+- Spiel Handball
+- Hobby-Fitness-Influencerin
+- Vegetarisch
+- Extrovertiert
+- Selbstverliebt
+
+### Ziele
+
+Laura möchte Gainz.com verwenden, um ihren sportlichen Lifestyle in Form von Bekleidung ihren Followern und Mitmenschen zu zeigen. Darüber hinaus will sie ihr im Studium erlerntes Wissen anwenden, um ihre Ernährung für ihren sportlichen Lifestyle optimal zu supplementieren.
+
+### Frustrationen
+
+- Design von vielen Fitness-Webshops nicht ansprechend
+- Navigieren zum richtigen Produkt geht zu lang
+- Kann Nährwerte von Supplements nicht direkt auf Websites sehen
+
+## Bruno Bizeps
+
+- Beruf: Personal Trainer
+- Alter: 29
+- Familienstand: Verheiratet, ein Kind
+- Wohnsituation: Eigentumswohnung
+  
+### Lifestyle
+
+- Zielstrebig
+- Ehrgeizig
+- Eitel
+- Leben auf Bodybuilding ausgerichtet
+- Verbringt mindestens 3h pro Tag im Studio
+- Ernährt sich strikt nach seiner Diät
+
+### Ziele
+
+Bruno Bizeps möchte mit den Produkten von Gainz.com den größtmöglichen Trainingserfolg für sich und seine Klienten sicherstellen.
+
+### Frustrationen
+
+- Unübersichtliche Websites
+- Überfüllte Produktportfolios
+
+## Harald Hardgainer
+
+- Beruf: Informatiker
+- Alter: 41
+- Familienstand: Ledig
+- Wohnsituation: Im Elternhaus
+
+### Lifestyle
+
+- Ängstlich
+- Unsicher
+- Verbringt sehr viel Zeit an seinem Computer
+
+### Ziele
+
+Henno möchte mit den Produkten von Gainz.com im Fitnessstudio seine ersten Erfolge schnell sehen, sowohl an seinem Körper als auch in seinem Selbstvertrauen.
+
+### Frustrationen
+
+- Keine Ahnung von Supplements oder Sportbekleidung
+- Meiste Fitnessshops nicht einsteigerfreundlich
+- Fühlt sich körperlich schwach
+
+##   Kontextdiagramm
 
 ![Kontextdiagramm](/assets/images/kontext.PNG)
 
@@ -258,7 +343,7 @@ Unsere Homepage wird einerseits mittels Actions, anderseits mittels Parasails an
 
 ![Lighthousescore](/assets/images/lighthousescore.png)
 
-#### Generell hatten wir von Anfang an ein guten Score, ein paar Kleinigkeiten haben wir trotzdem geändert:
+#### Generell hatten wir von Anfang an ein guten Score, ein paar Kleinigkeiten haben wir trotzdem geändert
 
 - Die Bilder verursachen lange Ladezeiten -> Deswegen benutzten wir vor allem auf Unterseiten Bilder mit geringerer Auflösung und oder Vektorgraphiken.
 - Wir haben unnötigen HTML, CSS und Javascript Code entfernt, so wie Files, welche nicht benutzt werden, aus dem Projekt gelöscht.
