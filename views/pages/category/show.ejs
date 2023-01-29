@@ -38,11 +38,6 @@
                                             </div>
                                         </th>
                                         <th>
-                                            <div class="is-variable">
-                                                <button class="button is-primary card-footer-item" id="searchCategoryButton">
-                                                    Kategorie suchen
-                                                </button>
-                                            </div>
                                         </th>
                                     </tr>
                                 </thead>
@@ -66,7 +61,7 @@
                                         </td>
                                         <td>
                                             <button v-on:click="openDeleteModal(category.id)" class="button is-danger"
-                                                v-if="category.isActive">Delete</button>
+                                                v-if="category.isActive">Deaktivieren</button>
                                                 <a :href="'/category/reactivate/'+category.id" class="button is-primary"
                                                 v-else>Aktivieren</a>
                                         </td>

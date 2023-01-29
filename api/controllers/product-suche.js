@@ -11,16 +11,9 @@ module.exports = {
 
     success: {
       statusCode: 200,
-      description: 'Requesting user is a guest, so show the public landing page.',
+      description: 'Loads the searched products',
       viewTemplatePath: 'pages/product/productList'
     },
-
-    redirect: {
-      responseType: 'redirect',
-      description: 'Requesting user is logged in, so redirect to the internal welcome page.',
-      viewTemplatePath: 'pages/product/productList'
-    },
-
   },
 
 

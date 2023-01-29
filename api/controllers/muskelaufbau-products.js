@@ -17,15 +17,9 @@ module.exports = {
 
     success: {
       statusCode: 200,
-      description: 'Requesting user is a guest, so show the public landing page.',
+      description: 'Loads the muskelaufbau page with corresponding products',
       viewTemplatePath: 'pages/fitnessziele/muskelaufbau'
     },
-    redirect: {
-      responseType: 'redirect',
-      description: 'Requesting user is logged in, so redirect to the internal welcome page.',
-      viewTemplatePath: 'pages/fitnessziele/muskelaufbau'
-    },
-
   },
 
 

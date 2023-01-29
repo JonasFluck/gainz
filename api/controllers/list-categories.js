@@ -4,8 +4,7 @@ module.exports = {
   friendlyName: 'View homepage or redirect',
 
 
-  description: 'Display or redirect to the appropriate homepage, depending on login status.',
-
+  description: 'Loads the category page with corresponding catgories',
 
   exits: {
 
@@ -16,7 +15,6 @@ module.exports = {
     },
 
   },
-
 
   fn: async function () {
     sails.log.debug("List all categories")

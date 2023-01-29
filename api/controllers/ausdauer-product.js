@@ -19,12 +19,6 @@ module.exports = {
       description: 'Requesting user is a guest, so show the public landing page.',
       viewTemplatePath: 'pages/fitnessziele/ausdauer'
     },
-    redirect: {
-        responseType: 'redirect',
-        description: 'Requesting user is logged in, so redirect to the internal welcome page.',
-        viewTemplatePath: 'pages/fitnessziele/ausdauer'
-      },
-
   },
 
 

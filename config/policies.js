@@ -38,9 +38,7 @@ module.exports.policies = {
 'destroy-category': 'is-super-admin',
 'edit-category':  'is-super-admin',
 'update-category' : 'is-super-admin',
-'list-category':{
-    '*' : true
-    },
+
   // Bypass the `is-logged-in` policy for:
   'entrance/*': true,
   'account/logout': true,
@@ -56,8 +54,4 @@ module.exports.policies = {
   'api/*':true,
   'product-suche' :true,
   'muskelaufbau-products' : true,
-
-
-
-
 };

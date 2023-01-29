@@ -79,7 +79,7 @@
                                         </td>
                                         <td>
                                             <a :href="'/product/product/destroy/'+product.id" class="button is-danger"
-                                                v-if="product.isActive">Delete</a>
+                                                v-if="product.isActive">Deaktivieren</a>
                                                 <template v-else v-for="category in categories">
                                                     <a :href="'/product/reactivate/'+product.id" class="button is-primary"
                                                     v-if="product.category === category.id && category.isActive">Aktivieren</a>
