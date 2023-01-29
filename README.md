@@ -417,6 +417,21 @@ Dabei kann er sowohl Produkte und Kategorien hinzufügen, ändern oder löschen
 
 ### Use Case wurde komplett umgesetzt
 
+## Use Case: Stammdaten ändern (CRUD)
+
+### Actor(s)
+- Mitarbeiter
+- registrierter Nutzer
+
+### Beschreibung
+Dem Mitarbeiter und dem registrierten Nutzer ist es möglich, seine Stammdaten zu ändern
+
+### Vorbedingung
+- Startseite aufgerufen
+- Als Admin/Nutzer angemeldet
+- Konto Seite Aufgerufen
+
+### Use Case wurde komplett umgesetzt
 
 # 3. Bereitstellung
 
