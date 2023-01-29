@@ -92,15 +92,6 @@ const tabs = document.querySelectorAll('.tabs li');
 const tabContentBoxes = document.querySelectorAll('#tab-content > div');
 const modalBg = document.querySelector('.modal-background');
 
-window.onload = function(){  
-    if(showModal != null){
-        if(showModal === true){
-        modal.classList.add('is-active')
-    }
-    }
-}
-
-
 modalBg.addEventListener('click', () => {
             modal.classList.remove('is-active');
         });
